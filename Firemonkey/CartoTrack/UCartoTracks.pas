@@ -575,20 +575,19 @@ begin
  // amenity
 
  Selector := '#' + map.OverPassApi.Layer.Group.Name;
- map.Styles.addRule(Selector+'.marker {styleicon:svg;}'); // markers use svg image
-
+ 
  // graphic for propriety tourims = hotel
- map.styles.addRule(Selector + '.marker.tourism:hotel {graphic:'+ptHotel.Data.data+';color:@hotel;hbcolor:light(@hotel)}');
+ map.styles.addRule(Selector + '.marker.tourism:hotel {styleicon:svg;graphic:'+ptHotel.Data.data+';color:@hotel;hbcolor:light(@hotel)}');
 
  map.styles.addRule(Selector+'.polygone.amenity:parking {color:@parking;fcolor:light(@parking)}');
 
 
  Selector := Selector + '.marker.amenity';
- map.styles.addRule(Selector + ':restaurant {graphic:'+ptRestaurant.Data.data+';color:@restaurant;hbcolor:light(@restaurant)}');
- map.styles.addRule(Selector + ':cafe {graphic:'+ptcafe.Data.data+';color:@cafe;hbcolor:light(@cafe)}');
- map.styles.addRule(Selector + ':bar {graphic:'+ptbar.Data.data+';color:@bar;hbcolor:light(@bar)}');
+ map.styles.addRule(Selector + ':restaurant {styleicon:svg;graphic:'+ptRestaurant.Data.data+';color:@restaurant;hbcolor:light(@restaurant)}');
+ map.styles.addRule(Selector + ':cafe {styleicon:svg;graphic:'+ptcafe.Data.data+';color:@cafe;hbcolor:light(@cafe)}');
+ map.styles.addRule(Selector + ':bar {styleicon:svg;graphic:'+ptbar.Data.data+';color:@bar;hbcolor:light(@bar)}');
 
- map.styles.addRule(Selector + ':parking {graphic:'+ptparking.Data.data+';color:@parking;hbcolor:light(@parking)}');
+ map.styles.addRule(Selector + ':parking {styleicon:svg;graphic:'+ptparking.Data.data+';color:@parking;hbcolor:light(@parking)}');
 
 
  // ----------------------------------------------------------------------------
