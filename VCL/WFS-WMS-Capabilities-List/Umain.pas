@@ -101,7 +101,8 @@ begin
  // layer creation automatically calls getCapabilities
  // map.WMSLayers.OnCapabilities (doOnCapabilities) is triggered when data is ready
  // Layers are automatically destroyed when the map is also destroyed
- WMS_Layer := map.WMSLayers.Add(wfsEndPoint.Text);
+ WMS_Layer := map.WMSLayers.Add(wmfEndPoint.Text);
+
 
  WMS_Layer.opacity := 0.7;
 
