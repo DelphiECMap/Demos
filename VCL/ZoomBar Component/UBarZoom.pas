@@ -22,11 +22,13 @@ type
     RadioButton3: TRadioButton;
     RadioButton4: TRadioButton;
     ckVisible: TCheckBox;
+    ckProgressive: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure ckVerticalClick(Sender: TObject);
     procedure RadioButton4Click(Sender: TObject);
     procedure ckVisibleClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure ckProgressiveClick(Sender: TObject);
 
   private
     { Déclarations privées }
@@ -62,6 +64,11 @@ begin
 end;
 
 // switch between vertical and horizontal bar
+procedure TFormZoomBar.ckProgressiveClick(Sender: TObject);
+begin
+ FZoomBarComponent.ProgressiveZoom := ckProgressive.Checked;
+end;
+
 procedure TFormZoomBar.ckVerticalClick(Sender: TObject);
 begin
 

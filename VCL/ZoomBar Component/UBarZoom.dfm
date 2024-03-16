@@ -21,6 +21,8 @@ object FormZoomBar: TFormZoomBar
     Height = 435
     Align = alRight
     BevelOuter = bvNone
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 0
     object ckVertical: TCheckBox
       AlignWithMargins = True
@@ -99,7 +101,7 @@ object FormZoomBar: TFormZoomBar
     object ckVisible: TCheckBox
       AlignWithMargins = True
       Left = 3
-      Top = 158
+      Top = 181
       Width = 127
       Height = 17
       Align = alTop
@@ -108,6 +110,21 @@ object FormZoomBar: TFormZoomBar
       State = cbChecked
       TabOrder = 2
       OnClick = ckVisibleClick
+      ExplicitTop = 158
+    end
+    object ckProgressive: TCheckBox
+      AlignWithMargins = True
+      Left = 3
+      Top = 158
+      Width = 127
+      Height = 17
+      Hint = 'Press and hold a zoom button to activate progressive zoom.'
+      Align = alTop
+      Caption = 'Progressive zoom'
+      Checked = True
+      State = cbChecked
+      TabOrder = 3
+      OnClick = ckProgressiveClick
     end
   end
   object map: TECNativeMap
