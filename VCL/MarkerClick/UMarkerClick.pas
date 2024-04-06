@@ -54,7 +54,7 @@ implementation
 
 const
 
-  // encode / decode Google Encoded Polyline Algorithm Format
+  // Google Encoded Polyline Algorithm Format
   // see https://developers.google.com/maps/documentation/utilities/polylinealgorithm
 
   ENCODED_PATH_ROUTE = 'ocvmqAoexCC@bDAz@R~RRvLf@R?z@R|@h@AAf@oARgEvBsl@nA_b' +
@@ -163,6 +163,7 @@ end;
 procedure TFormMarkers.mapMapClick(sender: TObject; const Lat, Lng: Double);
 var mrk:TECShapeMarker;
 begin
+
    // create a marker in a default group
    mrk := map.AddMarker(Lat,Lng);
 
@@ -241,18 +242,21 @@ begin
         end;
    end;
 
+
    (*
 
     As mouse-over on a marker is indicated by a specific trace,
-    we invalidate to force redrawing of the marker to take it into account,
-    as it only occurs when the mouse is moved.
+    we set focus to force redrawing of the marker to take it into account.
+    Otherwise you have to move the mouse to detect the hover
 
    *)
-   map.invalidate;
+
+   mrk.setFocus;
+
+
 
    memo1.Lines.Add('Add Marker '+
                   ' Lat : '+DoubleToStrDigit(lat,4)+' Lng : '+DoubleToStrDigit(lng,4));
-
 end;
 
 // Global response for clicks on elements of any type
