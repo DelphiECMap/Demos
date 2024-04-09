@@ -30,7 +30,7 @@ implementation
 
 procedure TForm21.FormCreate(Sender: TObject);
 begin
- map.OnResize := doMapResize;
+
 
  // align the components at the bottom of the map to the left
 
@@ -48,6 +48,7 @@ begin
  FZoomBar.Layout := ctlHorizontal;
  FZoomBar.Align  := ecLeftBottom;
 
+ map.OnResize := doMapResize;
  // calculate the gap between the two components
  doMapResize(map);
 
