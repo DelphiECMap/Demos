@@ -90,7 +90,16 @@ end;
 
 procedure TFormGoogle.mapMapClick(sender: TObject; const Lat, Lng: Double);
 begin
-  map.ShowInfoWindow(lat,lng,'<img src="'+map.Google.StreetView(lat,lng,FStreetViewWidth,FStreetViewHeight)+'" width='+inttostr(FStreetViewWidth)+' height='+inttostr(FStreetViewHeight)+'>');
+  if map.Google.StreetView.setPosition(Lat,Lng) then
+ begin
+
+  map.ShowInfoWindow(Lat, Lng, '<img src="' + map.Google.StreetView.BitmapUrl  + '" width=' +
+    inttostr( map.Google.StreetView.Width) + ' height=' +
+    inttostr( map.Google.StreetView.Height) + '>');
+
+  StreetViewImage.Picture.Assign(map.Google.StreetView.Bitmap);
+
+ end;
 end;
 
 procedure TFormGoogle.maptypeChange(Sender: TObject);

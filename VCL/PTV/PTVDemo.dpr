@@ -9,6 +9,6 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm14, Form14);
+  Application.CreateForm(TPTVForm, PTVForm);
   Application.Run;
 end.
