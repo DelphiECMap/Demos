@@ -1,0 +1,250 @@
+object FormMultiView: TFormMultiView
+  Left = 0
+  Top = 0
+  Caption = 'Demo MultiView for TECNativeMap'
+  ClientHeight = 441
+  ClientWidth = 937
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OnCreate = FormCreate
+  OnResize = FormResize
+  TextHeight = 15
+  object pnMaster: TPanel
+    Left = 0
+    Top = 0
+    Width = 937
+    Height = 280
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitWidth = 624
+    object pnMasterBar: TPanel
+      AlignWithMargins = True
+      Left = 3
+      Top = 3
+      Width = 931
+      Height = 41
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 0
+      ExplicitWidth = 618
+      object Label1: TLabel
+        AlignWithMargins = True
+        Left = 650
+        Top = 3
+        Width = 278
+        Height = 35
+        Align = alRight
+        Alignment = taCenter
+        Caption = ' Master : all elements are placed in this map '
+        Color = clInfoBk
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+        Layout = tlCenter
+        ExplicitLeft = 653
+        ExplicitTop = 4
+        ExplicitHeight = 17
+      end
+      object AddMasterPois: TButton
+        Left = 8
+        Top = 9
+        Width = 193
+        Height = 25
+        Caption = 'Add Shapes in MasterMap'
+        TabOrder = 0
+        OnClick = AddMasterPoisClick
+      end
+    end
+    object MasterMap: TECNativeMap
+      AlignWithMargins = True
+      Left = 3
+      Top = 50
+      Width = 931
+      Height = 227
+      HideShapesWhenZoom = False
+      HideShapesWhenWaitingTile = False
+      DblClickZoom = True
+      MouseWheelZoom = True
+      latitude = 43.232951000000000000
+      longitude = 0.078081999999994910
+      Reticle = False
+      ReticleColor = clBlack
+      ZoomScaleFactor = 0
+      NumericalZoom = 14.000000000000000000
+      DragRect = drNone
+      Draggable = True
+      OnlyOneOpenInfoWindow = False
+      WaitingForDestruction = False
+      Active = True
+      NbrThreadTile = ttFour
+      Align = alClient
+      TabOrder = 1
+      ExplicitWidth = 618
+    end
+  end
+  object pnViews: TPanel
+    Left = 0
+    Top = 280
+    Width = 937
+    Height = 161
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitWidth = 624
+    object pnRight: TPanel
+      Left = 0
+      Top = 0
+      Width = 185
+      Height = 161
+      Align = alLeft
+      BevelOuter = bvNone
+      Caption = 'pnRight'
+      TabOrder = 0
+      object pnBarViewA: TPanel
+        AlignWithMargins = True
+        Left = 3
+        Top = 117
+        Width = 179
+        Height = 41
+        Align = alBottom
+        BevelOuter = bvNone
+        Caption = 'pnBarViewA'
+        ShowCaption = False
+        TabOrder = 0
+        object Label2: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 173
+          Height = 35
+          Align = alClient
+          Alignment = taCenter
+          Caption = ' View A : No elements in this map, it uses those of Master '
+          Color = clInfoBk
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Layout = tlCenter
+          ExplicitLeft = -185
+          ExplicitTop = 4
+          ExplicitWidth = 364
+          ExplicitHeight = 17
+        end
+      end
+      object ViewAMap: TECNativeMap
+        AlignWithMargins = True
+        Left = 3
+        Top = 3
+        Width = 179
+        Height = 108
+        HideShapesWhenZoom = False
+        HideShapesWhenWaitingTile = False
+        DblClickZoom = True
+        MouseWheelZoom = True
+        latitude = 43.232951000000000000
+        longitude = 0.078081999999994910
+        Reticle = False
+        ReticleColor = clBlack
+        ZoomScaleFactor = 0
+        NumericalZoom = 14.000000000000000000
+        DragRect = drNone
+        Draggable = True
+        OnlyOneOpenInfoWindow = False
+        WaitingForDestruction = False
+        Active = True
+        NbrThreadTile = ttFour
+        Align = alClient
+        TabOrder = 1
+      end
+    end
+    object pnLeft: TPanel
+      Left = 185
+      Top = 0
+      Width = 752
+      Height = 161
+      Align = alClient
+      BevelOuter = bvNone
+      Caption = 'pnRight'
+      TabOrder = 1
+      ExplicitWidth = 439
+      object pnBarViewB: TPanel
+        AlignWithMargins = True
+        Left = 3
+        Top = 117
+        Width = 746
+        Height = 41
+        Align = alBottom
+        BevelOuter = bvNone
+        Caption = 'pnBarViewA'
+        ShowCaption = False
+        TabOrder = 0
+        ExplicitWidth = 433
+        object Label3: TLabel
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Width = 740
+          Height = 35
+          Align = alClient
+          Alignment = taCenter
+          Caption = ' View B : No elements in this map, it uses those of Master '
+          Color = clInfoBk
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -13
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentColor = False
+          ParentFont = False
+          Transparent = False
+          Layout = tlCenter
+          ExplicitLeft = 383
+          ExplicitTop = 4
+          ExplicitWidth = 363
+          ExplicitHeight = 17
+        end
+      end
+      object ViewBMap: TECNativeMap
+        AlignWithMargins = True
+        Left = 3
+        Top = 3
+        Width = 746
+        Height = 108
+        HideShapesWhenZoom = False
+        HideShapesWhenWaitingTile = False
+        DblClickZoom = True
+        MouseWheelZoom = True
+        latitude = 43.232951000000000000
+        longitude = 0.078081999999994910
+        Reticle = False
+        ReticleColor = clBlack
+        ZoomScaleFactor = 0
+        NumericalZoom = 14.000000000000000000
+        DragRect = drNone
+        Draggable = True
+        OnlyOneOpenInfoWindow = False
+        WaitingForDestruction = False
+        Active = True
+        NbrThreadTile = ttFour
+        Align = alClient
+        TabOrder = 1
+        ExplicitWidth = 433
+      end
+    end
+  end
+end
