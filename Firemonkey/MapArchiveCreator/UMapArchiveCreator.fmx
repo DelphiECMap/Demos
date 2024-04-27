@@ -24,17 +24,22 @@ object Form10: TForm10
       HideShapesWhenWaitingTile = False
       DblClickZoom = True
       MouseWheelZoom = True
-      Latitude = 43.232951000000000000
-      Longitude = 0.078081999999994910
+      latitude = 43.232951000000000000
+      longitude = 0.078081999999994910
       Reticle = False
       ReticleColor = claBlack
       ZoomScaleFactor = 0
+      NumericalZoom = 14.000000000000000000
       DragRect = drNone
       Draggable = True
-      LowTileServer = tsNone
-      MaxLowZoom = 15
+      FullZoomAfterGestureZoom = False
+      TwoOrMoreFingers = False
+      OnlyOneOpenInfoWindow = False
+      WaitingForDestruction = False
       Active = True
+      NbrThreadTile = ttFour
       Align = Client
+      ClipChildren = True
       Size.Width = 536.000000000000000000
       Size.Height = 672.000000000000000000
       Size.PlatformDefault = False
@@ -114,6 +119,7 @@ object Form10: TForm10
       Size.PlatformDefault = False
       TextSettings.Font.Size = 14.000000000000000000
       TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.Trimming = None
       Text = 'Servers'
     end
     object Label2: TLabel
@@ -130,6 +136,7 @@ object Form10: TForm10
       Size.PlatformDefault = False
       TextSettings.Font.Size = 14.000000000000000000
       TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.Trimming = None
       Text = 'Archives (select or create new archive)'
     end
     object Label3: TLabel
@@ -146,6 +153,7 @@ object Form10: TForm10
       Size.PlatformDefault = False
       TextSettings.Font.Size = 14.000000000000000000
       TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.Trimming = None
       Text = 'Address'
     end
     object edAdress: TEdit
@@ -196,6 +204,7 @@ object Form10: TForm10
           Size.Width = 161.000000000000000000
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Trimming = None
         end
       end
       object StartStop: TButton
@@ -211,6 +220,7 @@ object Form10: TForm10
         Size.PlatformDefault = False
         TabOrder = 1
         Text = 'Start'
+        TextSettings.Trimming = None
         OnClick = StartStopClick
       end
       object maxzoom: TSpinBox
@@ -246,6 +256,7 @@ object Form10: TForm10
       Size.PlatformDefault = False
       TabOrder = 7
       Text = 'Create ZIP Archive'
+      TextSettings.Trimming = None
       OnClick = ZipClick
     end
     object Directory: TButton
@@ -261,6 +272,7 @@ object Form10: TForm10
       Size.PlatformDefault = False
       TabOrder = 8
       Text = 'Open Zip Directory'
+      TextSettings.Trimming = None
       OnClick = DirectoryClick
     end
     object GroupBox1: TGroupBox
@@ -283,6 +295,7 @@ object Form10: TForm10
         Size.Width = 33.000000000000000000
         Size.Height = 15.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Trimming = None
         Text = 'Start'
       end
       object Label5: TLabel
@@ -291,6 +304,7 @@ object Form10: TForm10
         Size.Width = 25.000000000000000000
         Size.Height = 15.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Trimming = None
         Text = 'End'
       end
       object RouteStart: TEdit
@@ -320,6 +334,7 @@ object Form10: TForm10
         Size.PlatformDefault = False
         TabOrder = 4
         Text = 'Add Route'
+        TextSettings.Trimming = None
         OnClick = AddRouteClick
       end
       object InfoRoute: TLabel
@@ -332,6 +347,7 @@ object Form10: TForm10
         Size.Width = 293.000000000000000000
         Size.Height = 24.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Trimming = None
       end
       object LEngine: TLabel
         Position.X = 16.000000000000000000
@@ -339,6 +355,7 @@ object Form10: TForm10
         Size.Width = 41.000000000000000000
         Size.Height = 15.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Trimming = None
         Text = 'Engine'
       end
       object engine: TComboBox
@@ -370,6 +387,7 @@ object Form10: TForm10
       Size.PlatformDefault = False
       TabOrder = 10
       Text = 'Clear ZIP Directory'
+      TextSettings.Trimming = None
       OnClick = ClearDirectoryClick
     end
     object Files: TGroupBox
@@ -389,6 +407,7 @@ object Form10: TForm10
         Size.Width = 33.000000000000000000
         Size.Height = 15.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Trimming = None
         Text = 'Type'
       end
       object FileType: TComboBox
@@ -412,6 +431,7 @@ object Form10: TForm10
         Size.PlatformDefault = False
         TabOrder = 6
         Text = 'Add files...'
+        TextSettings.Trimming = None
         OnClick = SelectFileClick
       end
     end
