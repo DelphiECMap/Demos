@@ -550,7 +550,7 @@ begin
   map.Styles.addRule('.guidance:0 {graphic:' + ptDirect.Data.Data +
     ';color:@hand;bcolor:light(@hand);}');
   map.Styles.addRule('.guidance:1 {graphic:' + ptFoot.Data.Data +
-    ';color:@foot;bcolor:light(@foot)');
+    ';color:@foot;bcolor:light(@foot)}');
   map.Styles.addRule('.guidance:2 {graphic:' + ptBike.Data.Data +
     ';color:@bike;bcolor:light(@bike)}');
   map.Styles.addRule('.guidance:3 {graphic:' + ptCar.Data.Data +
@@ -567,9 +567,9 @@ begin
   map.Styles.addRule
     (':selected,:hover { if:guidance=2 ;scale:1.3;color:light(@bike);bcolor:light(@bike);hbcolor:light(@bike)}');
   map.Styles.addRule
-    (':selected,:hover { if:guidance=3 ;scale:1.3;color:light(@car);bcolor:light(@car);hbcolor:light(@car)');
+    (':selected,:hover { if:guidance=3 ;scale:1.3;color:light(@car);bcolor:light(@car);hbcolor:light(@car)}');
   map.Styles.addRule
-    (':selected, :hover { if:guidance=4 ;scale:1.3;color:light(@gps);bcolor:light(@gps);hbcolor:light(@gps)');
+    (':selected, :hover { if:guidance=4 ;scale:1.3;color:light(@gps);bcolor:light(@gps);hbcolor:light(@gps)}');
 
 
  // amenity
