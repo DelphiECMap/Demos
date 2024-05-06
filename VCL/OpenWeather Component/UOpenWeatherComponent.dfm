@@ -11,6 +11,7 @@ object FormWeather: TFormWeather
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   TextHeight = 15
   object Panel1: TPanel
     AlignWithMargins = True

@@ -78,6 +78,11 @@ begin
   FOpenWeatherComponent.visible := true;
 end;
 
+procedure TFormWeather.FormDestroy(Sender: TObject);
+begin
+ FOpenWeatherComponent.free;
+end;
+
 // Triggered by change of weather station
 procedure  TFormWeather.doOnChange(sender : TObject);
 begin
