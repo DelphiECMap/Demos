@@ -341,8 +341,12 @@ begin
 
   map.OverPassApi.Layer.Group.Markers.Labels.LabelType := ltHint;
   map.OverPassApi.Layer.Group.Markers.Labels.Visible := true;
-  map.OverPassApi.Layer.Group.Markers.Labels.Rotation:= lsrHideRotation;
-  map.OverPassApi.Layer.Group.Markers.Labels.Margin := 4;
+  map.OverPassApi.Layer.Group.Markers.Labels.ShadowText := true;
+  map.OverPassApi.Layer.Group.Markers.Labels.ShadowColor := claBlack;
+  map.OverPassApi.Layer.Group.Markers.Labels.Style := lsTransparent;
+  map.OverPassApi.Layer.Group.Markers.Labels.FontBold := true;
+  map.OverPassApi.Layer.Group.Markers.Labels.Align := TLabelShapeAlign.laBottom;
+  map.OverPassApi.Layer.Group.Markers.Labels.Margin := 7;
 
   // start of search
   map.OverPassApi.Layer.OnBeginQuery := doSearchAmenity;
@@ -1584,6 +1588,7 @@ begin
    map.OverPassApi.Layer.Amenity(['restaurant','cafe','bar']);
    map.OverPassApi.Layer.Group.ClusterManager.TextColor := FDarkColor;
    map.OverPassApi.Layer.Group.ClusterManager.Style := csCategories;
+   map.OverPassApi.Layer.Group.ClusterManager.BorderColor := claWhite;
  end;
 
  if (btparking.Tag=1) then
