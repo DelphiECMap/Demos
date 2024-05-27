@@ -119,7 +119,6 @@ object FormLegend: TFormLegend
         Caption = 'Bottom-Right'
         TabOrder = 1
         OnClick = RadioButton4Click
-        ExplicitLeft = 6
       end
       object RadioButton3: TRadioButton
         Tag = 1
@@ -150,7 +149,7 @@ object FormLegend: TFormLegend
     object ckVisible: TCheckBox
       AlignWithMargins = True
       Left = 3
-      Top = 319
+      Top = 342
       Width = 127
       Height = 17
       Align = alTop
@@ -159,7 +158,7 @@ object FormLegend: TFormLegend
       State = cbChecked
       TabOrder = 1
       OnClick = ckVisibleClick
-      ExplicitTop = 135
+      ExplicitTop = 319
     end
     object GroupBox2: TGroupBox
       AlignWithMargins = True
@@ -174,7 +173,6 @@ object FormLegend: TFormLegend
       Padding.Right = 3
       Padding.Bottom = 3
       TabOrder = 2
-      ExplicitTop = 135
       object RadioButton6: TRadioButton
         Tag = 2
         AlignWithMargins = True
@@ -186,7 +184,6 @@ object FormLegend: TFormLegend
         Caption = 'Right justify'
         TabOrder = 0
         OnClick = RadioButton8Click
-        ExplicitLeft = 6
       end
       object RadioButton7: TRadioButton
         Tag = 1
@@ -238,7 +235,6 @@ object FormLegend: TFormLegend
         Caption = 'Right'
         TabOrder = 0
         OnClick = RadioButton9Click
-        ExplicitLeft = 6
       end
       object RadioButton10: TRadioButton
         AlignWithMargins = True
@@ -253,6 +249,18 @@ object FormLegend: TFormLegend
         TabStop = True
         OnClick = RadioButton9Click
       end
+    end
+    object AddCheckBox: TCheckBox
+      AlignWithMargins = True
+      Left = 3
+      Top = 319
+      Width = 127
+      Height = 17
+      Align = alTop
+      Caption = 'Add CheckBox'
+      TabOrder = 4
+      OnClick = AddCheckBoxClick
+      ExplicitLeft = 0
     end
   end
   object map: TECNativeMap
