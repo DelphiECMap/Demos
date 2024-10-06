@@ -26,6 +26,7 @@ type
     RadioButton6: TRadioButton;
     light: TSpinBox;
     Dark: TSpinBox;
+    Rectangle1: TRectangle;
     procedure FormCreate(Sender: TObject);
     procedure mapMapClick(sender: TObject; const Lat, Lng: Double);
     procedure NewColorChange(Sender: TObject);
@@ -73,9 +74,11 @@ begin
   x := map.MouseX;
   y := map.MouseY;
 
+ // under firemonkey, for ScreenShot to work,
+ // the map must be placed in a parent component (in this case, a TRectangle)
  ScreenShot := map.ScreenShot;
 
- if ScreenShot.Map(TMapAccess.ReadWrite, Data) then
+ if assigned(ScreenShot) and  (ScreenShot.Map(TMapAccess.ReadWrite, Data)) then
  begin
 
    SelectColor.Fill.Color := Data.getPixel(x,y);

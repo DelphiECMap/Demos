@@ -16,8 +16,6 @@ type
     addMarker: TButton;
     Label1: TLabel;
     cbStyle: TComboBox;
-    FontDialog: TFontDialog;
-    Button1: TButton;
     Label2: TLabel;
     cbAlign: TComboBox;
     ckLabels: TCheckBox;
@@ -28,23 +26,30 @@ type
     ckScale: TCheckBox;
     Label3: TLabel;
     cbSelect: TComboBox;
+    ckConnector: TCheckBox;
+    Label4: TLabel;
+    cbStyleLine: TComboBox;
+    Label5: TLabel;
+    cbMargin: TComboBox;
     procedure addMarkerClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure cbStyleChange(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
     procedure cbAlignChange(Sender: TObject);
     procedure ckLabelsClick(Sender: TObject);
     procedure rbMarkersClick(Sender: TObject);
     procedure AddPoisClick(Sender: TObject);
     procedure ckScaleClick(Sender: TObject);
-    procedure mapMapPaint(sender: TObject; const canvas: TECCanvas);
 
 
 
     procedure cbSelectChange(Sender: TObject);
+    procedure ckConnectorClick(Sender: TObject);
+    procedure cbStyleLineChange(Sender: TObject);
+    procedure cbMarginChange(Sender: TObject);
   private
     { Déclarations privées }
     FLabelShape : TLabelShape;
+
 
     procedure doSelectAlphaBetaGamma(sender:TObject;const Shape: TECShape;var cancel: Boolean);
 
@@ -58,6 +63,7 @@ var
 implementation
 
 {$R *.dfm}
+
 
 
 // select items according to the AlphaBetaGamma filter
@@ -124,7 +130,7 @@ begin
 
     poi.Draggable := true;
 
-    poi.Color := GetHashColor('P'+poi.propertyValue['alphabetagamma']);
+    poi.Color := GetRandomPastelColor;
 
     poi.borderColor := GetShadowColorBy(poi.Color,48);
 
@@ -153,22 +159,7 @@ begin
 
   rbPois.Checked := true;
 
-end;
 
-procedure TForm27.Button1Click(Sender: TObject);
-begin
- if FontDialog.execute then
- begin
-
-   FLabelShape.FontFamily := FontDialog.Font.Name;
-   FLabelShape.FontSize   := FontDialog.Font.Size;
-   FLabelShape.FontColor  := FontDialog.Font.Color;
-
-   FLabelShape.FontBold   := fsBold in FontDialog.Font.Style;
-   FLabelShape.FontItalic := fsItalic in FontDialog.Font.Style;
-
-
- end;
 
 end;
 
@@ -183,7 +174,11 @@ begin
  end;
 
 
+end;
 
+procedure TForm27.cbMarginChange(Sender: TObject);
+begin
+ FLabelShape.Margin := (1+cbMargin.ItemIndex)*10;
 end;
 
 procedure TForm27.cbStyleChange(Sender: TObject);
@@ -198,6 +193,21 @@ begin
 
 end;
 
+procedure TForm27.cbStyleLineChange(Sender: TObject);
+begin
+ case cbStyleLine.ItemIndex of
+  0 : FLabelShape.ConnectorLineStyle := psSolid;
+  1 : FLabelShape.ConnectorLineStyle := psDash;
+  2 : FLabelShape.ConnectorLineStyle := psDashdot;
+  3 : FLabelShape.ConnectorLineStyle := psdot;
+ end;
+end;
+
+procedure TForm27.ckConnectorClick(Sender: TObject);
+begin
+ FLabelShape.ConnectorLine := ckConnector.Checked;
+end;
+
 procedure TForm27.ckLabelsClick(Sender: TObject);
 begin
  FLabelShape.Visible := ckLabels.Checked;
@@ -205,7 +215,7 @@ end;
 
 procedure TForm27.ckScaleClick(Sender: TObject);
 begin
-  FLabelShape.Scale := ckScale.Checked;
+FLabelShape.Scale := ckScale.Checked;
 end;
 
 procedure TForm27.FormCreate(Sender: TObject);
@@ -213,8 +223,18 @@ begin
 
   FLabelShape :=  map.Shapes.Markers.Labels;
 
+
+  //map.Shapes['shadowcolor'] := clRed.ToString;
+  //FLabelShape.margin := 10;
+
+ // FLabelShape.ShadowText := true;
+  //FLabelShape.ShadowTextOffset := 2;
+
+
   FLabelShape.align      := latop;
   FLabelShape.Style := lsRectangle;
+
+  FLabelShape.Bordersize := 0;
 
 
   map.Selected.OnSelectShape := doSelectAlphaBetaGamma;
@@ -225,11 +245,11 @@ begin
 
   FLabelShape.Visible    := true;
 
-end;
+  map.ColorFilter.filter := fcGrey;
 
-procedure TForm27.mapMapPaint(sender: TObject; const canvas: TECCanvas);
-begin
- canvas.GrayScale;
+  rbMarkersClick(nil);
+
+
 end;
 
 procedure TForm27.rbMarkersClick(Sender: TObject);
@@ -240,10 +260,14 @@ begin
  else
   FLabelShape :=  map.Shapes.Pois.Labels  ;
 
+
   ckLabelsClick(nil);
   cbSelectChange(nil);
   cbStyleChange(nil);
   cbAlignChange(nil);
+  ckConnectorClick(nil);
+  cbStyleLineChange(nil);
+  cbMarginChange(nil);
 end;
 
 procedure TForm27.cbSelectChange(Sender: TObject);
@@ -276,7 +300,7 @@ begin
 
     mrk := map.AddMarker(lat,lng) ;
 
-    mrk.StyleIcon := siflat;
+    mrk.StyleIcon := siFlatNoBorder;//  siflat;
 
 
     case random(3) of
@@ -299,13 +323,19 @@ begin
 
     mrk.hint := 'hint marker n°'+inttostr(mrk.IndexOf+1);
 
-    mrk.Opacity := 50;
+    mrk.Opacity := 100;
 
     mrk.Draggable := true;
 
     mrk.Color := GetHashColor('M'+mrk.propertyValue['alphabetagamma']);;
 
     direction := direction + 45;
+
+   // mrk['fontcolor']:='rgb('+inttostr(random(255))+','+inttostr(random(255))+','+inttostr(random(255))+')';
+   // mrk['fillcolor']:='red';
+   // mrk['bordercolor']:='#10ee55';
+   //mrk['shadowcolor'] := clyellow.ToString;
+
 
 
 

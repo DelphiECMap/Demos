@@ -10,9 +10,7 @@ object Form27: TForm27
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
@@ -21,10 +19,9 @@ object Form27: TForm27
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 634
     object Label1: TLabel
-      Left = 344
-      Top = 27
+      Left = 309
+      Top = 42
       Width = 29
       Height = 13
       Caption = 'Style'
@@ -36,8 +33,8 @@ object Form27: TForm27
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 470
-      Top = 27
+      Left = 308
+      Top = 14
       Width = 28
       Height = 13
       Caption = 'Align'
@@ -49,11 +46,37 @@ object Form27: TForm27
       ParentFont = False
     end
     object Label3: TLabel
-      Left = 623
-      Top = 27
+      Left = 575
+      Top = 42
       Width = 35
       Height = 13
       Caption = 'Select'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 437
+      Top = 42
+      Width = 52
+      Height = 13
+      Caption = 'Style line'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 575
+      Top = 14
+      Width = 39
+      Height = 13
+      Caption = 'Margin'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -71,9 +94,9 @@ object Form27: TForm27
       OnClick = addMarkerClick
     end
     object cbStyle: TComboBox
-      Left = 377
-      Top = 23
-      Width = 82
+      Left = 342
+      Top = 38
+      Width = 85
       Height = 21
       Style = csDropDownList
       ItemIndex = 0
@@ -85,22 +108,13 @@ object Form27: TForm27
         'RoundRect'
         'Transparent')
     end
-    object Button1: TButton
-      Left = 263
-      Top = 23
-      Width = 75
-      Height = 21
-      Caption = 'Font'
-      TabOrder = 2
-      OnClick = Button1Click
-    end
     object cbAlign: TComboBox
-      Left = 502
-      Top = 23
-      Width = 59
+      Left = 342
+      Top = 11
+      Width = 85
       Height = 21
       Style = csDropDownList
-      TabOrder = 3
+      TabOrder = 2
       OnChange = cbAlignChange
       Items.Strings = (
         'Top'
@@ -110,13 +124,13 @@ object Form27: TForm27
     end
     object ckLabels: TCheckBox
       Left = 208
-      Top = 25
+      Top = 11
       Width = 49
       Height = 17
       Caption = 'Labels'
       Checked = True
       State = cbChecked
-      TabOrder = 4
+      TabOrder = 3
       OnClick = ckLabelsClick
     end
     object AddPois: TButton
@@ -125,7 +139,7 @@ object Form27: TForm27
       Width = 98
       Height = 25
       Caption = 'Add 8 Pois'
-      TabOrder = 5
+      TabOrder = 4
       OnClick = AddPoisClick
     end
     object RadioGroup1: TRadioGroup
@@ -134,7 +148,7 @@ object Form27: TForm27
       Width = 82
       Height = 59
       Caption = 'Select'
-      TabOrder = 6
+      TabOrder = 5
     end
     object rbMarkers: TRadioButton
       Left = 123
@@ -143,7 +157,7 @@ object Form27: TForm27
       Height = 17
       Caption = 'Markers'
       Checked = True
-      TabOrder = 7
+      TabOrder = 6
       TabStop = True
       OnClick = rbMarkersClick
     end
@@ -153,31 +167,75 @@ object Form27: TForm27
       Width = 60
       Height = 17
       Caption = 'Pois'
-      TabOrder = 8
+      TabOrder = 7
       OnClick = rbMarkersClick
     end
     object ckScale: TCheckBox
-      Left = 570
-      Top = 25
-      Width = 47
+      Left = 208
+      Top = 38
+      Width = 95
       Height = 17
-      Caption = 'Scale'
-      TabOrder = 9
+      Caption = 'Scale to Zoom'
+      TabOrder = 8
       OnClick = ckScaleClick
     end
     object cbSelect: TComboBox
-      Left = 664
-      Top = 23
+      Left = 616
+      Top = 39
       Width = 73
       Height = 21
       Style = csDropDownList
-      TabOrder = 10
+      TabOrder = 9
       OnChange = cbSelectChange
       Items.Strings = (
         'none'
         'Alpha'
         'Beta'
         'Gamma')
+    end
+    object ckConnector: TCheckBox
+      Left = 439
+      Top = 11
+      Width = 74
+      Height = 17
+      Caption = 'Connector'
+      TabOrder = 10
+      OnClick = ckConnectorClick
+    end
+    object cbStyleLine: TComboBox
+      Left = 494
+      Top = 38
+      Width = 75
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 11
+      Text = 'Solid'
+      OnChange = cbStyleLineChange
+      Items.Strings = (
+        'Solid'
+        'Dash'
+        'DashDot'
+        'Dot')
+    end
+    object cbMargin: TComboBox
+      Left = 616
+      Top = 11
+      Width = 73
+      Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
+      TabOrder = 12
+      Text = '10'
+      OnChange = cbMarginChange
+      Items.Strings = (
+        '10'
+        '20'
+        '30'
+        '40'
+        '50'
+        '60'
+        '')
     end
   end
   object map: TECNativeMap
@@ -194,23 +252,15 @@ object Form27: TForm27
     Reticle = False
     ReticleColor = clBlack
     ZoomScaleFactor = 0
+    NumericalZoom = 14.000000000000000000
     DragRect = drNone
     Draggable = True
     TileServer = tsOsmFr
     OnlyOneOpenInfoWindow = False
     WaitingForDestruction = False
     Active = True
-    OnMapPaint = mapMapPaint
+    NbrThreadTile = ttFour
     Align = alClient
-    ExplicitWidth = 634
-  end
-  object FontDialog: TFontDialog
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    Left = 464
-    Top = 88
+    TabOrder = 1
   end
 end

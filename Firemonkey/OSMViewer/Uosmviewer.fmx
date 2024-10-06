@@ -47,6 +47,7 @@ object Form2: TForm2
         Text = 'Open OSM / OLT File'
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.Trimming = None
         OnClick = OpenOSMFileClick
       end
       object SaveOLT: TButton
@@ -62,6 +63,7 @@ object Form2: TForm2
         Text = 'Save OLT'
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.Trimming = None
         ParentShowHint = False
         ShowHint = True
         OnClick = SaveOLTClick
@@ -99,6 +101,7 @@ object Form2: TForm2
         TextSettings.Font.Size = 15.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
+        TextSettings.Trimming = None
         Text = 'Keys'
         ParentShowHint = False
         ShowHint = False
@@ -109,9 +112,10 @@ object Form2: TForm2
           TabOrder = 0
           ItemHeight = 19.000000000000000000
           ItemIndex = -1
-          Position.X = 120.000000000000000000
-          Size.Width = 192.000000000000000000
-          Size.Height = 27.000000000000000000
+          Position.X = 176.888870239257800000
+          Position.Y = 8.000000000000000000
+          Size.Width = 135.111129760742200000
+          Size.Height = 19.000000000000000000
           Size.PlatformDefault = False
           OnChange = keysChange
         end
@@ -122,13 +126,15 @@ object Form2: TForm2
           Margins.Left = 50.000000000000000000
           Margins.Right = 16.000000000000000000
           Position.X = 50.000000000000000000
-          Size.Width = 63.000000000000000000
-          Size.Height = 27.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 79.000000000000000000
+          Size.Height = 19.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Courier New'
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.FontColor = claWhite
           TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
           ParentShowHint = False
           ShowHint = False
         end
@@ -144,6 +150,7 @@ object Form2: TForm2
         TextSettings.Font.Size = 15.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
+        TextSettings.Trimming = None
         Text = 'Values'
         ParentShowHint = False
         ShowHint = False
@@ -153,9 +160,10 @@ object Form2: TForm2
           TabOrder = 0
           ItemHeight = 19.000000000000000000
           ItemIndex = -1
-          Position.X = 120.000000000000000000
-          Size.Width = 192.000000000000000000
-          Size.Height = 27.000000000000000000
+          Position.X = 131.000000000000000000
+          Position.Y = 0.773437500000000000
+          Size.Width = 181.000000000000000000
+          Size.Height = 25.453125000000000000
           Size.PlatformDefault = False
         end
         object ValueCount: TLabel
@@ -172,6 +180,7 @@ object Form2: TForm2
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.FontColor = claWhite
           TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
           ParentShowHint = False
           ShowHint = False
         end
@@ -189,6 +198,7 @@ object Form2: TForm2
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Trailing
         TextSettings.VertAlign = Leading
+        TextSettings.Trimming = None
         ParentShowHint = False
         ShowHint = False
         object Node: TLabel
@@ -203,6 +213,7 @@ object Form2: TForm2
           TextSettings.FontColor = claWhite
           TextSettings.HorzAlign = Trailing
           TextSettings.VertAlign = Leading
+          TextSettings.Trimming = None
           ParentShowHint = False
           ShowHint = False
           object NodeImage: TImage
@@ -213,18 +224,18 @@ object Form2: TForm2
                 Height = 20
                 PNG = {
                   89504E470D0A1A0A0000000D49484452000000140000001408060000008D891D
-                  0D000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-                  012C49444154384FE595BD4E844010C7070513306082C5995C4D49418DAF422E
-                  3E801FC5DD235CAF529B7B181E81900081428A3B31E71741960282B3BA854613
-                  5862A5BFCD14B3931DF6CF9F5D04001064593EC738ABAAEA08736E1445B92384
-                  5C62B8808D2E2CCB2A9224E9DAB6ED78A16BE85AD3345FE8A64055D52C8E6356
-                  1E4F18869DAEEBB7546E5914C5BE288A4CC0389AA6014DD35E7758FE6BFC9186
-                  5114BDC7107A4D999DCC605B6E018D84C9C10456372B56F9CA20537CDF87F5D3
-                  1AE6D77358B80BC8EE33088280557FA657B2808387419237CF1B800E607A38ED
-                  953CE8C3C6930482208061186CE63B5C0D87F09F4F0ABEBBC7344D593A1E6A1C
-                  FAF1B08B749EE71DDBB6BD274912D475CD1DB499E338659EE7CBCFBF8053BC7D
-                  B58FE7F1819B2AF0FABF2284B86F9E332AED6EABBE4A0000000049454E44AE42
-                  6082}
+                  0D0000000473424954080808087C0864880000014149444154388DDD95314FC2
+                  401886DF6BA9C957933332882C6CB0902E5DF1AF10E26A223AC04F30AC2AB3E1
+                  C7F01308497B29830CC41AD4D814AE432FE7A446A3D0968D27B9EDCB93F7CBBD
+                  97630018115D115177BD5E9FA200B66D3F49296FA5944310D1B5EBBA5110045A
+                  29A5F3A294D2411068C771DE89A80BCEF95C08915BF41BCFF374B95C7E644414
+                  475174582A958A6CFB459AA6E09CAF8C9D2C7FB02742DFF7E1FB7E26E1D69BE8
+                  9C77B08C97D05AA37254C1E861543CE16432C1E26D81DE7D0FFD611FF3E739A6
+                  D36971210030B06D233FD8B8B2E338A81E5731B818001AA89DD4D06C363707C8
+                  526C21041863A8D7EBFFCE7C163BD3F368341A59C600EC4DB173092DCB7A9DCD
+                  663B8B841020A217D3300C3D1E8FCF5AADD6816559489224F71142A0DD6EC761
+                  18DE307C7F01974A295E249D699A9194F24E4A39FC006A0710554CBD847E0000
+                  000049454E44AE426082}
                 FileName = 'D:\20px-Osm_element_way.svg.png'
               end>
             Align = Left
@@ -249,6 +260,7 @@ object Form2: TForm2
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.FontColor = claWhite
             TextSettings.VertAlign = Leading
+            TextSettings.Trimming = None
             ParentShowHint = False
             ShowHint = True
           end
@@ -274,6 +286,7 @@ object Form2: TForm2
           TextSettings.FontColor = claWhite
           TextSettings.HorzAlign = Trailing
           TextSettings.VertAlign = Leading
+          TextSettings.Trimming = None
           ParentShowHint = False
           ShowHint = False
           object WayImage: TImage
@@ -284,25 +297,26 @@ object Form2: TForm2
                 Height = 20
                 PNG = {
                   89504E470D0A1A0A0000000D49484452000000140000001408060000008D891D
-                  0D000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-                  022949444154384F9595CD8E614114C78F410483048B8E85C4069188080B5B0B
-                  1B16DE802798E97E80DECD0BCCA4D716DEC05A226129111BDF22BE1242847083
-                  EBBBE654F5BD8691BEDDF79754A24EB9FFFB3FA7EAD455008042ABD53EE3F8B9
-                  DD6E9F702E1B9D4E37E179FE378E3740A117BFDFCF753A1D723E9F895CE833F4
-                  59AFD7BBA2A6C060300CDBEDB6B0FC39AD568B64B359723A9D84C83BCD669398
-                  CDE60175B83E1E8F42589A4C2643542A15C12C493C1E17A2EF500DAA254B3091
-                  4830313A140A05D9ED76C2CA3FC16FB4A85F01370C7C3E1FA0109B472211D068
-                  34ECF72D7487D71CC7E9311521F4C8643281F1780C168B05A6D329F4FB7DC094
-                  EF04B1A660341A37928297CB050683012C974BB0DBED4CF02344C10F53C6FA40
-                  A3D180CD66032E974B52EC963B87F97C1E72B91C84C361C023007ABD1E1C0E07
-                  489543447478DDE572B97C3D121823C5629160CAC21E7ECEC32E572A15F6160A
-                  B61074BB5D381C0E6C2E0BD1E162B1206EB79B390C0683A45AAD9252A944EAF5
-                  3A99CD660F9DF13FA2C3BB1A6210B02FC1E9748252A984FD7E0FF3F99C0DEADE
-                  643281D56AA5B5825EAF07A3D10842A110ABF1430DA5A0B54451427B9EBA4EA5
-                  5244AD56B36C62B118FB8FE85056EB51B0AE772D48C76AB592DF7A22E80CA2D1
-                  A83003080402AC0457E8F545AF1EB9140A05924EA7993B4AAD5663D717DD9417
-                  8FC7F30B17BFDB6C36E135F2180E87904C26D758E3D7DB4FC00FBC7D6FBC7F1D
-                  3C111C9EDD3F3CCFBFFD054C6EE278B9FA51A00000000049454E44AE426082}
+                  0D0000000473424954080808087C0864880000024449444154388D9D95BD6A22
+                  511CC5CFAC23E1AFCB0D8C16C142B0494240842445DA1469B49837884FB0D93C
+                  C076FB02BBA44EE11BA41684A414244D3E30C3183FC06008238EB85E753EFE5B
+                  99ECAC313BEEE9EE9D7B7F73B8E71EAE024021A2AF4474321E8F37F01F8AC562
+                  3D29E50F29E51988E874777777689A267B9EC7ABCAF33C364D93B3D9AC4D4427
+                  1042740CC3080D787878E072B9CCAEEB06E6EBF53A6B9AD606118D1CC70905BB
+                  B8B86055551900EBBA1EF8E6380E13D16825E0F1F131036000AC280A4F269305
+                  E0A7B0073F1E8F91CBE5A0280A00E0E8E8086B6B6B0BEB14221A0D87C3B8AAAA
+                  4B61BD5E0F4F4F4F482412787E7E46ABD582AEEB01A0EBBA1042FCFA10E8FB3E
+                  DAED36068301D2E9341289C4D29FCE814B6D4D2613341A0D3033B6B6B6108BC5
+                  96C2FE5400787979894AA582C3C343689A86783C8E4C26838F8E6341F394AFAF
+                  AF5FAF041171B55A65DFF743A5FF6ECA373737705D170020A5C4E3E32366B359
+                  78677F3BECF7FBBCBDBDCD00787F7F9F6F6F6FB956ABF1FDFD3DBFBCBC2C3463
+                  99C340CA8EE3C0344D6C6E6E221289603A9DC2B22C589605D775B1BEBE8E6432
+                  0921049ACD26BADD2E0E0E0EA0AAEA6BCAA19AE2FB3E5B96C5866170AD56E3F3
+                  F3738E46A30C800B8542C0E14AD563669ECD66810A0260DBB657AFDE5CD16814
+                  F97CFE75BCB7B70721C4DB022144A75EAF877638D7D5D515974A25B66D9B9999
+                  EFEEEE58D3B4B64244A73B3B3BDF4BA5D2E7542AB5FA3501D0E974502C164786
+                  617C53F0F6047CF13C4FFC73F73B8A44224329E54F29E5D96F0E66DA8C29326F
+                  F30000000049454E44AE426082}
                 FileName = 'D:\20px-Osm_element_way.svg.png'
               end>
             Align = Left
@@ -327,6 +341,7 @@ object Form2: TForm2
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.FontColor = claWhite
             TextSettings.VertAlign = Leading
+            TextSettings.Trimming = None
             ParentShowHint = False
             ShowHint = True
           end
@@ -354,6 +369,7 @@ object Form2: TForm2
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
         TextSettings.VertAlign = Leading
+        TextSettings.Trimming = None
         ParentShowHint = False
         ShowHint = False
         object searchnodes: TButton
@@ -366,6 +382,7 @@ object Form2: TForm2
           TabOrder = 0
           Text = 'Search Nodes'
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.Trimming = None
           OnClick = searchnodesClick
         end
         object searchway: TButton
@@ -381,6 +398,7 @@ object Form2: TForm2
           TabOrder = 1
           Text = 'Search Ways'
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.Trimming = None
           OnClick = searchwayClick
         end
         object ColorBox: TComboColorBox
@@ -409,6 +427,7 @@ object Form2: TForm2
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Center
         TextSettings.VertAlign = Leading
+        TextSettings.Trimming = None
         object SearchLabel: TLabel
           Align = Left
           StyledSettings = [Family]
@@ -421,6 +440,7 @@ object Form2: TForm2
           TextSettings.Font.StyleExt = {00070000000000000004000000}
           TextSettings.FontColor = claWhite
           TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
         end
         object GroupItem: TComboBox
           Align = Client
@@ -446,10 +466,12 @@ object Form2: TForm2
         Viewport.Height = 328.000000000000000000
         object ColKeys: TColumn
           Header = 'Key'
+          HeaderSettings.TextSettings.WordWrap = False
           Size.Width = 113.000000000000000000
         end
         object ColValues: TColumn
           Header = 'value'
+          HeaderSettings.TextSettings.WordWrap = False
           Size.Width = 175.000000000000000000
         end
       end
@@ -467,6 +489,7 @@ object Form2: TForm2
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Center
         TextSettings.VertAlign = Leading
+        TextSettings.Trimming = None
         object Groups: TComboBox
           Align = Client
           Margins.Right = 2.000000000000000000
@@ -488,6 +511,7 @@ object Form2: TForm2
           TabOrder = 1
           Text = 'Hide'
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.Trimming = None
           OnClick = GroupVisibleClick
         end
         object GroupDelete: TButton
@@ -501,6 +525,7 @@ object Form2: TForm2
           TabOrder = 2
           Text = 'Delete'
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.Trimming = None
           OnClick = GroupDeleteClick
         end
       end
@@ -519,6 +544,7 @@ object Form2: TForm2
         TextSettings.Font.Size = 15.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claWhite
+        TextSettings.Trimming = None
         ParentShowHint = False
         ShowHint = False
         object Relations: TComboEdit
@@ -528,24 +554,27 @@ object Form2: TForm2
           TabOrder = 0
           ItemHeight = 19.000000000000000000
           ItemIndex = -1
-          Position.X = 120.000000000000000000
-          Size.Width = 192.000000000000000000
-          Size.Height = 27.000000000000000000
+          Position.X = 180.000000000000000000
+          Position.Y = 8.218750953674316000
+          Size.Width = 132.000000000000000000
+          Size.Height = 18.562500000000000000
           Size.PlatformDefault = False
           OnClosePopup = RelationsChange
         end
         object Relation: TLabel
-          Align = Center
+          Align = Left
           StyledSettings = [Family]
           Margins.Right = 2.000000000000000000
-          Size.Width = 118.000000000000000000
-          Size.Height = 23.000000000000000000
+          Position.Y = 8.000000000000000000
+          Size.Width = 178.000000000000000000
+          Size.Height = 15.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Courier New'
           TextSettings.Font.Size = 16.000000000000000000
           TextSettings.FontColor = claWhite
           TextSettings.HorzAlign = Trailing
           TextSettings.VertAlign = Leading
+          TextSettings.Trimming = None
           ParentShowHint = False
           ShowHint = False
           object RelationImage: TImage
@@ -556,39 +585,40 @@ object Form2: TForm2
                 Height = 20
                 PNG = {
                   89504E470D0A1A0A0000000D49484452000000140000001408060000008D891D
-                  0D000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
-                  02F449444154384F95554B4B5B5110FEA2313EEA035430822E44905A71A14236
-                  16174A5A14BAE9CE85BB40DCB48DD62AB8701710DC542C48F7FE02B742884697
-                  226954548CA63E6244D12618E37B3A733CB9E6362EEA0743EE7CF7DC3973E69B
-                  39B100B01416167E61FB7C79796967FFC5282A2A8AA552A9EF6C53E0409E9696
-                  96C4F6F636DDDFDFD34B21DFC8B7CDCDCD71490A2525257B5B5B5BFA35D1C3C3
-                  03EDEEEED2F5F5B566FE0F1B1B1B545E5EFE5B32BCB8BDBD55E4FCC23C757677
-                  92EB9B8BBA3F76D3E48F49C5FF8BA3A3236A6D6D259BCD46C3C3C38A931812CB
-                  0828E6FCE0A4B9BD39F2457DCA7ADDBDB4B8B848D168940E0E0E281289D0CECE
-                  0E0D0C0C1097CEB0FDFD7D23608E1455C0C7445D631D72ADB99A011CEF1CF0F9
-                  7D88C7E360C1C0F582C562417575B55E01141717A3B4B4547B8055FFA2A6A606
-                  D148547B8F0887C2E878D381FAFA7AE4E5E56916181C1C54C1575757E172B954
-                  C0BBBB3BF54E5AE6229148BCB25AAD98FE398DA5E0121CEF1D08FF0AE34FE40F
-                  46BE8EE0E6E60676BB1D5555552AC3E720013970D21450100804B0105840E3EB
-                  46343434A0A9A909676767E01A42D6C849CACACAD4DA4CA4039A54161C1E1ED2
-                  E6E626F1020A0683148BC5142FBE08B3BCBC4C6B6B6BC4C7A69E9E1E9A9D9D55
-                  EFB3544E43149346159C9C9CD0CACA0AF191952F48269334363666285C505040
-                  E7E7E7D92AA721C5CEC979A42B2B2B919F9F0F6E1BE50B78CC1497060F0078E4
-                  B4076405E44931020A6A6B6B717A7A0ACE4C33407F7F3FBABABA94485EAFD7D4
-                  462651B85E181F1F578A0E0D0D2911043C5698999951D9B9DD6E545454283E13
-                  CF8AD2D6D666D48677569CC0E3F118BCD3E9D4AC195935640EAC9EF6805028A4
-                  9F80F5F575FD64E69F456686A3A3A32A0B1E27F2FBFD8A13486B889ADCD43431
-                  31A15933D219AAEB4BAE9E34E426E19A6AEF09D21AC7C7C7DACB86F4A65C5FB9
-                  0CE2E978DBDEDE6E9379152144E9ABAB2B9309786D162FC6F729FAFAFA2E7843
-                  6FE65FC027EEC1A76BE305E08D12DC8B93A9546AEA2FAFC8FBB11F3CF1D00000
-                  000049454E44AE426082}
+                  0D0000000473424954080808087C0864880000032049444154388D9D55C14B23
+                  571CFE9299984C1A46488444888745905AF112C18B650F2B6951E8A5B73D780B
+                  E8A55B4DAD0B1EBC05042F952D2CBDFB17E4BA105CE31E45AC46C6309AAC1963
+                  8262B6C1384966265F0FAD6F9B9A5D76F7070FE6F7BDF7BEF7E3FB7EF39E0B80
+                  4B51949F15457976777717C11784DFEFAF98A6F99B699A2FA028CA622C16ABEB
+                  BA4EC771F8B9E1380E755DE7F8F8F85F8AA23C83AAAAE7F97C5E2CE8743A2C14
+                  0A6CB55A9F45AC691A83C1E05B288A726B591649F2F5CE6B3E9979C2C4AF09CE
+                  FC38C3CDDF377B6EBEBCBC642C16635F5F1F575656489296655151945B416859
+                  16E33FC4F9EAFC1533E50C33E50C9FCE3FE5EEEE2ECBE5320DC360B158E4D9D9
+                  1997969608408C52A92408E57B610B85021E8D3E82244B42ECC9EF2691D9CE20
+                  140A419224489204B7DB8DC1C141B1261008405555910BC268348A72B1DCE5DE
+                  E9E1291E7FF318C3C3C3F0783C024F2693701C07474747482412505515B66D03
+                  FFB6CC6DBD5EFF4A9665BCFCE325DE1CBCC1E4F79338FDF314EF8AEFF0FC97E7
+                  68B7DB8844220887C370B95C3D5BC7B66DA8AADAE82204806C368B9DEC0E46BF
+                  1EC5C8C808C6C6C670737303C33020CB32A2D128FAFBFB3F48D8E532495E5C5C
+                  F0E4E484B66DF3E0E080954A852469DB360DC3E0DEDE1E73B91C93C924676767
+                  994EA77BBB7C1FA55289BAAE9324AFAEAEB8BFBFCF76BB2DE61B8D06D7D6D684
+                  C33E9F8FB55A4D10BAFF5FBAE33870BBFF81070606E0F57A512EBF37CBEFF7C3
+                  EBF58ABCD56AC1344D913F20EC743A821000868686707D7D8D46A321B0858505
+                  4C4F4F231C0E23954A75B5519729954A05EBEBEB884422585E5EC6BD519AA661
+                  6B6B0B7EBF1FF3F3F30885429F66CAC4C484D026954A09DD161717051E8FC77B
+                  FE8E0F3424895C2E274E3C3C3C14DFC7C7C73DF19EF1DF0A5757570980814080
+                  DBDBDBE2F4743A4D9FCF4797CBC58D8D8D8F56085555CF354DEBBA49EAF5FA83
+                  0DB55A8DD56AB5271949E672390683C1B792DBED66369BFD766A6AAACFE3F140
+                  9665743A1D349BCDAE010092243DC09BCD26F2F93CE6E6E66EABD56ACA85F74F
+                  C04F8EE3A81FD5E703214952DD34CD4DD3345FFC0D8588F35B7A9FD7BC000000
+                  0049454E44AE426082}
                 FileName = 'D:\20px-Osm_element_relation.svg.png'
               end>
             Align = Left
             Hint = 'Relations'
             Position.X = 16.000000000000000000
             Size.Width = 20.000000000000000000
-            Size.Height = 23.000000000000000000
+            Size.Height = 15.000000000000000000
             Size.PlatformDefault = False
             ParentShowHint = False
             ShowHint = True
@@ -599,20 +629,21 @@ object Form2: TForm2
             Hint = 'Relations'
             HitTest = True
             Margins.Left = 4.000000000000000000
-            Size.Width = 78.000000000000000000
-            Size.Height = 23.000000000000000000
+            Size.Width = 138.000000000000000000
+            Size.Height = 15.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Courier New'
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.FontColor = claWhite
             TextSettings.VertAlign = Leading
+            TextSettings.Trimming = None
             ParentShowHint = False
             ShowHint = True
           end
           object RelationCheck: TCheckBox
             Align = MostLeft
             Size.Width = 16.000000000000000000
-            Size.Height = 23.000000000000000000
+            Size.Height = 15.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
           end
@@ -632,6 +663,7 @@ object Form2: TForm2
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.FontColor = claWhite
       TextSettings.HorzAlign = Center
+      TextSettings.Trimming = None
       ParentShowHint = False
       ShowHint = False
     end
@@ -654,7 +686,7 @@ object Form2: TForm2
         IsChecked = True
         Position.X = 4.000000000000000000
         Position.Y = 8.000000000000000000
-        Size.Width = 272.020416259765600000
+        Size.Width = 275.739440917968800000
         Size.Height = 27.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -667,10 +699,11 @@ object Form2: TForm2
         Align = FitRight
         Hint = 'Rotation map'
         Margins.Right = 4.000000000000000000
-        Position.X = 280.020416259765600000
+        Position.X = 283.739440917968800000
+        Position.Y = 4.000000000000000000
         ShowValue = True
-        Size.Width = 35.979583740234380000
-        Size.Height = 43.000000000000000000
+        Size.Width = 32.260559082031250000
+        Size.Height = 39.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         ParentShowHint = False
@@ -711,20 +744,28 @@ object Form2: TForm2
       HideShapesWhenWaitingTile = False
       DblClickZoom = True
       MouseWheelZoom = True
-      Latitude = 43.232951000000000000
-      Longitude = 0.078081999999994910
+      latitude = 43.232951000000000000
+      longitude = 0.078081999999994910
       Reticle = False
       ReticleColor = claBlack
+      Zoom = 11
       ZoomScaleFactor = 0
+      NumericalZoom = 11.000000000000000000
       DragRect = drNone
       Draggable = True
+      FullZoomAfterGestureZoom = False
+      TwoOrMoreFingers = False
+      OnlyOneOpenInfoWindow = False
+      WaitingForDestruction = False
       Active = True
+      NbrThreadTile = ttFour
       OnChangeMapZoom = mapChangeMapZoom
       OnMapSelectRect = mapMapSelectRect
       OnMapPaint = mapMapPaint
       OnShapeClick = mapShapeClick
       OnLoad = mapLoad
       Align = Client
+      ClipChildren = True
       Size.Width = 762.000000000000000000
       Size.Height = 703.000000000000000000
       Size.PlatformDefault = False
@@ -769,7 +810,6 @@ object Form2: TForm2
         Stroke.Thickness = 7.000000000000000000
         Stroke.Cap = Round
         StartAngle = -90.000000000000000000
-        EndAngle = -90.000000000000000000
       end
       object ProgressCircleText: TText
         Align = Client
@@ -792,6 +832,7 @@ object Form2: TForm2
       TextSettings.Font.Size = 16.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.FontColor = claDimgray
+      TextSettings.Trimming = None
       Text = 'WaitInfo'
     end
   end
@@ -810,7 +851,9 @@ object Form2: TForm2
     Size.PlatformDefault = False
     TextSettings.Font.StyleExt = {00060000000000000004000000}
     TextSettings.HorzAlign = Center
+    TextSettings.Trimming = None
     Text = '12:12:12'
+    TabOrder = 2
   end
   object Timer1: TTimer
     Enabled = False

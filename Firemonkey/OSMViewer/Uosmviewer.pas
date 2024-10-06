@@ -288,14 +288,17 @@ begin
 
   // change the map style
   // see uecOSMStyles_standard
-  map.styles.Rules := UEC_OSM_STYLESHEET;
+  //map.styles.Rules := UEC_OSM_STYLESHEET;
+  map.Styles.Rules := StringReplace(UEC_OSM_STYLESHEET, '$G$', '#' + map.Shapes.Name,
+      [rfReplaceAll, rfIgnoreCase]) + #13#10 + map.Styles.Rules;
 
- 
+
   setLength(ItemKey, 100);
   setLength(ItemValue, 100);
 
   //
   FOSMFile          := TOSMFile.Create;
+
   // call for each block read
   FOSMFile.OnRead   := doOnRead;
   // call when parsing is finish
@@ -573,7 +576,7 @@ begin
     ' E. Christophe - Zoom : '+inttostr(map.Zoom);
 
  {$IFDEF DEBUG}
-  caption := caption+' '+inttostr(map.CalculTime)+'('+inttostr(map.ShapeListToDrawTime)+') - '+inttostr(map.DrawTime);
+  //caption := caption+' '+inttostr(map.CalculTime)+'('+inttostr(map.ShapeListToDrawTime)+') - '+inttostr(map.DrawTime);
  {$ENDIF}
 
 end;
