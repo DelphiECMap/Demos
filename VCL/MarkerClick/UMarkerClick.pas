@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uecNativeMapControl, Vcl.StdCtrls,
   // this is the unit that references all elements (markers, pois, lines, polygons, etc.)
   uecNativeShape,uecmaputil, Vcl.Imaging.pngimage, Vcl.ExtCtrls,uecGraphics,
-  System.ImageList, Vcl.ImgList;
+  System.ImageList, Vcl.ImgList,TileCacheSQLite.FireDac,uecSwitchServerComponent;
 
 type
   TFormMarkers = class(TForm)
@@ -23,6 +23,8 @@ type
     procedure mapShapeDragEnd(Sender: TObject);
 
     procedure FormCreate(Sender: TObject);
+    procedure mapMapRightClick(Sender: TObject; const Lat, Lng: Double);
+    procedure FormDestroy(Sender: TObject);
 
 
 
@@ -41,11 +43,11 @@ type
   public
     { Déclarations publiques }
 
-
   end;
 
 var
   FormMarkers: TFormMarkers;
+
 
 implementation
 
@@ -73,8 +75,11 @@ var mrk:TECShapeMarker;
     moving: TECAnimationMoveOnPath;
 begin
 
+
+
   // ImageList for markers
   map.icons := imagelist1;
+
 
 
   map.onMapClick := mapMapClick;
@@ -91,7 +96,7 @@ begin
   (* OnShapeOverIntent is triggered when the mouse remains motionless over an element
      for more than TimeMouseStop ms.
   *)
-  map.TimeMouseStop     := 500; // half a second
+  map.TimeMouseStop     := 1000; // a second
 
   // add a circle in the background of the marker
   // for all markers of default group
@@ -139,6 +144,10 @@ begin
 
 
 
+end;
+
+procedure TFormMarkers.FormDestroy(Sender: TObject);
+begin
 end;
 
 // fired when the car reaches the end of road
@@ -225,7 +234,7 @@ begin
           ! you must set OwnsGraphic to false, otherwise graphic will be released
           when the marker is destroyed and this will cause a crash when image1 is destroyed.
          *)
-         mrk.OwnsGraphic := false;
+        mrk.OwnsGraphic := false;
         end;
 
      4 :begin
@@ -253,10 +262,19 @@ begin
 
    mrk.setFocus;
 
-
+   mrk.Visible := true;
+   mrk.Scale := 1.2;
 
    memo1.Lines.Add('Add Marker '+
                   ' Lat : '+DoubleToStrDigit(lat,4)+' Lng : '+DoubleToStrDigit(lng,4));
+end;
+
+procedure TFormMarkers.mapMapRightClick(Sender: TObject; const Lat,
+  Lng: Double);
+begin
+ if not map.Shapes.Markers[0].ShowOnMap() then
+  map.Shapes.Markers[0].centeronmap;
+
 end;
 
 // Global response for clicks on elements of any type
@@ -370,8 +388,8 @@ begin
   // draw center cross
   x := rect.Left + (rect.Right  - rect.Left) div 2;
   y := rect.Top  + (rect.Bottom - rect.Top) div 2;
-  canvas.Polyline([Point(x, y - 10), Point(x, y + 10)]);
-  canvas.Polyline([Point(x - 10, y), Point(x + 10, y)]);
+  canvas.Polyline([Point(x, y - radius), Point(x, y + radius)]);
+  canvas.Polyline([Point(x - radius, y), Point(x + radius, y)]);
 
 
   // draw circle

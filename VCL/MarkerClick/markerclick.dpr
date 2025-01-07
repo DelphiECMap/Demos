@@ -7,6 +7,7 @@ uses
 {$R *.res}
 
 begin
+  ReportMemoryLeaksOnShutDown :=true;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFormMarkers, FormMarkers);
