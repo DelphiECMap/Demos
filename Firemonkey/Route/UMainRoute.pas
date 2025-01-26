@@ -107,9 +107,9 @@ begin
 
  // map.SSL := true;
 
-  // USE YOUR KEY ! this key is just for demo
+  // USE YOUR KEY ! 
   map.MapBoxToken :=
-    'pk.eyJ1Ijoiam9tYXgiLCJhIjoiY2lrZjVkaTl2MDAzNXZza3F5Zmg3eno2ZiJ9.VN9b5zTP0OrTLqQncoVafQ';
+    'pk.your_key_here';
 
   map.Routing.OnAddRoute := doOnAddRoute;
   map.Routing.OnErrorRoute := doOnErrorRoute;
@@ -227,9 +227,9 @@ begin
       map.Routing.engine(reMapBox);
     1:
       map.Routing.engine(reMapQuest);
-    // USE YOUR KEY !  this key is just for demo
+    // USE YOUR KEY !  
     2:
-      map.Routing.engine(reMapZen, 'valhalla-SSzliI4');
+      map.Routing.engine(reMapZen, 'valhalla-your_key_here');
     3:
       map.Routing.engine(reOSRM);
     4 : map.Routing.Engine(reOpenStreetMap);
