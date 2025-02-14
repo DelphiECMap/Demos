@@ -37,6 +37,7 @@ type
     gpMeasure: TGroupBox;
     rbMetric: TRadioButton;
     rbImperial: TRadioButton;
+    ckRadiusScale: TCheckBox;
     procedure ckScaleBarClick(Sender: TObject);
     procedure rbLineClick(Sender: TObject);
     procedure rbNoneClick(Sender: TObject);
@@ -45,6 +46,7 @@ type
     procedure pnColorClick(Sender: TObject);
     procedure ckShadowClick(Sender: TObject);
     procedure rbMetricClick(Sender: TObject);
+    procedure ckRadiusScaleClick(Sender: TObject);
   private
     { Déclarations privées }
   public
@@ -57,6 +59,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm14.ckRadiusScaleClick(Sender: TObject);
+begin
+ map.ScaleBar.RadiusScale := ckRadiusScale.Checked;
+end;
 
 procedure TForm14.ckScaleBarClick(Sender: TObject);
 begin

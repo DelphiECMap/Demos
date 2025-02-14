@@ -18,7 +18,6 @@ object Form14: TForm14
     Height = 511
     Align = alRight
     TabOrder = 0
-    ExplicitHeight = 441
     object ckScaleBar: TCheckBox
       AlignWithMargins = True
       Left = 8
@@ -33,7 +32,6 @@ object Form14: TForm14
       Caption = 'ScaleBar'
       TabOrder = 0
       OnClick = ckScaleBarClick
-      ExplicitLeft = 10
     end
     object pnProperties: TPanel
       Left = 1
@@ -44,13 +42,11 @@ object Form14: TForm14
       BevelOuter = bvNone
       TabOrder = 1
       Visible = False
-      ExplicitLeft = 6
-      ExplicitTop = 168
-      ExplicitWidth = 185
-      ExplicitHeight = 201
+      ExplicitTop = 53
+      ExplicitHeight = 457
       object Label1: TLabel
         Left = 0
-        Top = 399
+        Top = 422
         Width = 142
         Height = 17
         Margins.Top = 0
@@ -63,13 +59,13 @@ object Form14: TForm14
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitLeft = 5
-        ExplicitTop = 447
+        ExplicitTop = 399
+        ExplicitWidth = 60
       end
       object gbStyle: TGroupBox
         AlignWithMargins = True
         Left = 7
-        Top = 64
+        Top = 87
         Width = 128
         Height = 57
         Margins.Left = 7
@@ -79,7 +75,7 @@ object Form14: TForm14
         Align = alTop
         Caption = 'Style'
         TabOrder = 0
-        ExplicitTop = 0
+        ExplicitTop = 64
         object rbLine: TRadioButton
           AlignWithMargins = True
           Left = 9
@@ -95,7 +91,6 @@ object Form14: TForm14
           TabOrder = 0
           TabStop = True
           OnClick = rbLineClick
-          ExplicitTop = 20
         end
         object rbBar: TRadioButton
           AlignWithMargins = True
@@ -111,13 +106,12 @@ object Form14: TForm14
           Caption = 'Bar'
           TabOrder = 1
           OnClick = rbLineClick
-          ExplicitTop = 47
         end
       end
       object gbDivision: TGroupBox
         AlignWithMargins = True
         Left = 7
-        Top = 128
+        Top = 151
         Width = 128
         Height = 81
         Margins.Left = 7
@@ -127,7 +121,7 @@ object Form14: TForm14
         Align = alTop
         Caption = 'Division'
         TabOrder = 1
-        ExplicitTop = 64
+        ExplicitTop = 128
         object rbNone: TRadioButton
           AlignWithMargins = True
           Left = 9
@@ -143,7 +137,6 @@ object Form14: TForm14
           TabOrder = 0
           TabStop = True
           OnClick = rbNoneClick
-          ExplicitTop = 20
         end
         object rbOne: TRadioButton
           AlignWithMargins = True
@@ -158,7 +151,6 @@ object Form14: TForm14
           Caption = 'One'
           TabOrder = 1
           OnClick = rbNoneClick
-          ExplicitTop = 47
         end
         object rbFour: TRadioButton
           AlignWithMargins = True
@@ -173,14 +165,12 @@ object Form14: TForm14
           Caption = 'Four'
           TabOrder = 2
           OnClick = rbNoneClick
-          ExplicitLeft = 7
-          ExplicitTop = 82
         end
       end
       object tbThickNess: TTrackBar
         AlignWithMargins = True
         Left = 7
-        Top = 416
+        Top = 439
         Width = 128
         Height = 37
         Margins.Left = 7
@@ -192,13 +182,12 @@ object Form14: TForm14
         Position = 2
         TabOrder = 2
         OnChange = tbThickNessChange
-        ExplicitLeft = -1
-        ExplicitTop = 456
+        ExplicitTop = 416
       end
       object gbPosition: TGroupBox
         AlignWithMargins = True
         Left = 7
-        Top = 219
+        Top = 242
         Width = 128
         Height = 117
         Margins.Left = 7
@@ -207,7 +196,7 @@ object Form14: TForm14
         Align = alTop
         Caption = 'Position'
         TabOrder = 3
-        ExplicitTop = 244
+        ExplicitTop = 219
         object rbTopRight: TRadioButton
           AlignWithMargins = True
           Left = 9
@@ -233,7 +222,6 @@ object Form14: TForm14
           Caption = 'Bottom Right'
           TabOrder = 1
           OnClick = rbTopRightClick
-          ExplicitTop = 47
         end
         object rbTopLeft: TRadioButton
           AlignWithMargins = True
@@ -247,7 +235,6 @@ object Form14: TForm14
           Caption = 'Top Left'
           TabOrder = 2
           OnClick = rbTopRightClick
-          ExplicitTop = 74
         end
         object rbBottomLeft: TRadioButton
           AlignWithMargins = True
@@ -263,13 +250,12 @@ object Form14: TForm14
           TabOrder = 3
           TabStop = True
           OnClick = rbTopRightClick
-          ExplicitTop = 74
         end
       end
       object GroupBox1: TGroupBox
         AlignWithMargins = True
         Left = 7
-        Top = 343
+        Top = 366
         Width = 128
         Height = 49
         Margins.Left = 7
@@ -279,7 +265,7 @@ object Form14: TForm14
         Align = alTop
         Caption = 'Colors'
         TabOrder = 4
-        ExplicitTop = 392
+        ExplicitTop = 343
         object pnSecondaryColor: TPanel
           AlignWithMargins = True
           Left = 65
@@ -292,8 +278,6 @@ object Form14: TForm14
           ParentBackground = False
           TabOrder = 0
           OnClick = pnColorClick
-          ExplicitLeft = 69
-          ExplicitHeight = 48
         end
         object pnColor: TPanel
           AlignWithMargins = True
@@ -307,13 +291,12 @@ object Form14: TForm14
           ParentBackground = False
           TabOrder = 1
           OnClick = pnColorClick
-          ExplicitHeight = 48
         end
       end
       object ckShadow: TCheckBox
         AlignWithMargins = True
         Left = 7
-        Top = 459
+        Top = 482
         Width = 128
         Height = 17
         Margins.Left = 7
@@ -325,14 +308,12 @@ object Form14: TForm14
         State = cbChecked
         TabOrder = 5
         OnClick = ckShadowClick
-        ExplicitLeft = 24
-        ExplicitTop = 456
-        ExplicitWidth = 97
+        ExplicitTop = 459
       end
       object gpMeasure: TGroupBox
         AlignWithMargins = True
         Left = 7
-        Top = 0
+        Top = 23
         Width = 128
         Height = 57
         Margins.Left = 7
@@ -342,6 +323,7 @@ object Form14: TForm14
         Align = alTop
         Caption = 'Measuring system'
         TabOrder = 6
+        ExplicitTop = 0
         object rbMetric: TRadioButton
           AlignWithMargins = True
           Left = 9
@@ -374,6 +356,21 @@ object Form14: TForm14
           OnClick = rbMetricClick
         end
       end
+      object ckRadiusScale: TCheckBox
+        AlignWithMargins = True
+        Left = 7
+        Top = 3
+        Width = 132
+        Height = 17
+        Margins.Left = 7
+        Align = alTop
+        Caption = 'RadiusScale'
+        TabOrder = 7
+        OnClick = ckRadiusScaleClick
+        ExplicitLeft = 23
+        ExplicitTop = -3
+        ExplicitWidth = 118
+      end
     end
   end
   object map: TECNativeMap
@@ -381,6 +378,7 @@ object Form14: TForm14
     Top = 0
     Width = 480
     Height = 511
+    Cursor = crDefault
     HideShapesWhenZoom = False
     HideShapesWhenWaitingTile = False
     DblClickZoom = True
@@ -399,7 +397,6 @@ object Form14: TForm14
     NbrThreadTile = ttFour
     Align = alClient
     TabOrder = 1
-    ExplicitHeight = 441
   end
   object ColorDialog: TColorDialog
     Left = 304
