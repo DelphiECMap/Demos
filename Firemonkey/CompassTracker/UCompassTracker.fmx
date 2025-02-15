@@ -15,47 +15,47 @@ object FormTracker: TFormTracker
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
-  end
-  object map: TECNativeMap
-    Touch.InteractiveGestures = [Zoom, Rotate, DoubleTap]
-    HideShapesWhenZoom = False
-    HideShapesWhenWaitingTile = False
-    DblClickZoom = True
-    MouseWheelZoom = True
-    latitude = 43.232951000000000000
-    longitude = 0.078081999999994910
-    Reticle = False
-    ReticleColor = claBlack
-    Zoom = 15
-    ZoomScaleFactor = 0
-    NumericalZoom = 15.000000000000000000
-    DragRect = drNone
-    Draggable = True
-    FullZoomAfterGestureZoom = False
-    TwoOrMoreFingers = False
-    OnlyOneOpenInfoWindow = False
-    WaitingForDestruction = False
-    Active = True
-    NbrThreadTile = ttFour
-    Align = Client
-    Cursor = crDefault
-    TabOrder = 2
-    ClipChildren = True
-    Size.Width = 640.000000000000000000
-    Size.Height = 480.000000000000000000
-    Size.PlatformDefault = False
-    object CheckBoxCompass: TCheckBox
-      StyledSettings = [Family, Size, FontColor]
-      IsChecked = True
-      Position.X = 504.000000000000000000
-      Position.Y = 344.000000000000000000
-      Size.Width = 97.000000000000000000
-      Size.Height = 19.000000000000000000
+    object map: TECNativeMap
+      Touch.InteractiveGestures = [Zoom, Rotate, DoubleTap]
+      HideShapesWhenZoom = False
+      HideShapesWhenWaitingTile = False
+      DblClickZoom = True
+      MouseWheelZoom = True
+      latitude = 43.232951000000000000
+      longitude = 0.078081999999994910
+      Reticle = False
+      ReticleColor = claBlack
+      Zoom = 15
+      ZoomScaleFactor = 0
+      NumericalZoom = 15.000000000000000000
+      DragRect = drNone
+      Draggable = True
+      FullZoomAfterGestureZoom = False
+      TwoOrMoreFingers = False
+      OnlyOneOpenInfoWindow = False
+      WaitingForDestruction = False
+      Active = True
+      NbrThreadTile = ttFour
+      Align = Client
+      Cursor = crDefault
+      TabOrder = 2
+      ClipChildren = True
+      Size.Width = 640.000000000000000000
+      Size.Height = 480.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 0
-      Text = 'Compass'
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      OnClick = CheckBoxCompassClick
+      object CheckBoxCompass: TCheckBox
+        StyledSettings = [Family, Size, FontColor]
+        IsChecked = True
+        Position.X = 504.000000000000000000
+        Position.Y = 344.000000000000000000
+        Size.Width = 97.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Compass'
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        OnClick = CheckBoxCompassClick
+      end
     end
   end
 end
