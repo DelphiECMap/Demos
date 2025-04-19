@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs,uecOpenWeatherComponent, Vcl.StdCtrls,
-  Vcl.ExtCtrls, uecNativeMapControl,uecNativeShape,uecmaputil;
+  Vcl.ExtCtrls, uecNativeMapControl,uecNativeShape,uecmaputil, Vcl.ComCtrls;
 
 type
   TFormWeather = class(TForm)
@@ -22,9 +22,13 @@ type
     RadioButton8: TRadioButton;
     ckVisible: TCheckBox;
     Memo1: TMemo;
+    TimeLine: TTrackBar;
+    Label1: TLabel;
     procedure RadioButton4Click(Sender: TObject);
     procedure ckVisibleClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure TimeLineChange(Sender: TObject);
 
   private
     { Déclarations privées }
@@ -46,15 +50,18 @@ implementation
 
 procedure TFormWeather.FormCreate(Sender: TObject);
 begin
+
+
    // get your key from http://openweathermap.org/appid
-  map.OpenWeather.Key := 'ENTER-YOUR-KEY';
+  map.OpenWeather.Key := 'YOUR-API-KEY';
+
   // Air quality is optional, leave the key empty if you don't want to use it.
   // get your free key from https://aqicn.org/data-platform/token/
-  map.AirQuality.key := 'ENTER-YOUR-KEY';
+  map.AirQuality.key := 'YOUR-API-KEY';
 
   FOpenWeatherComponent := TOpenWeatherComponent.Create(Map);
   FOpenWeatherComponent.Color := clWhite;
-  
+
   // The component is only displayed for zoom 13 and above.
   FOpenWeatherComponent.MinZoom := 13;
 
@@ -75,7 +82,10 @@ begin
   Map.AirQuality.Legend[aqlVeryUnhealthy]      := 'Nocive';
   Map.AirQuality.Legend[aqlHazardous]          := 'Dangereuse';
 
+
   FOpenWeatherComponent.visible := true;
+
+  FOpenWeatherComponent.datetimeindex := 0;
 end;
 
 procedure TFormWeather.FormDestroy(Sender: TObject);
@@ -91,6 +101,7 @@ begin
   BeginUpdate;
     Clear;
     Add(FOpenWeatherComponent.Station.Name);
+    Add(DateTimeTostr(FOpenWeatherComponent.Station.UTCDateTime));
     Add('Temp : '+DoubleToStr(round(FOpenWeatherComponent.Station.temp))+'°'+
         ' (min: '+doubletostr(round(FOpenWeatherComponent.Station.temp_min))+'°'+
          ' max: '+doubletostr(round(FOpenWeatherComponent.Station.temp_max))+'°)' );
@@ -150,6 +161,11 @@ begin
   6 : FOpenWeatherComponent.Align := ecLeftCenter;
   7 : FOpenWeatherComponent.Align := ecRightCenter;
  end;
+end;
+
+procedure TFormWeather.TimeLineChange(Sender: TObject);
+begin
+ FOpenWeatherComponent.datetimeindex := TimeLine.Position;
 end;
 
 end.

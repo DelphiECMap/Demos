@@ -24,6 +24,16 @@ object FormWeather: TFormWeather
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
+    object Label1: TLabel
+      AlignWithMargins = True
+      Left = 3
+      Top = 245
+      Width = 127
+      Height = 15
+      Align = alTop
+      Caption = 'Time line'
+      ExplicitWidth = 48
+    end
     object GroupBox1: TGroupBox
       AlignWithMargins = True
       Left = 3
@@ -148,6 +158,21 @@ object FormWeather: TFormWeather
       TabOrder = 1
       OnClick = ckVisibleClick
     end
+    object TimeLine: TTrackBar
+      AlignWithMargins = True
+      Left = 3
+      Top = 266
+      Width = 127
+      Height = 45
+      Align = alTop
+      Max = 39
+      PositionToolTip = ptTop
+      TabOrder = 2
+      OnChange = TimeLineChange
+      ExplicitLeft = 0
+      ExplicitTop = 264
+      ExplicitWidth = 126
+    end
   end
   object Memo1: TMemo
     AlignWithMargins = True
@@ -165,6 +190,7 @@ object FormWeather: TFormWeather
     Top = 3
     Width = 479
     Height = 319
+    Cursor = crDefault
     HideShapesWhenZoom = False
     HideShapesWhenWaitingTile = False
     DblClickZoom = True
