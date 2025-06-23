@@ -85,7 +85,11 @@ begin
 
   FOpenWeatherComponent.visible := true;
 
-  FOpenWeatherComponent.datetimeindex := 0;
+  // DateTimeIndex from 0 to 39 to select date and time in 3-hour increments
+  //   0 = now
+  //   1 = now + 3 hours
+  //   8 = tomorrow at the same time
+  FOpenWeatherComponent.DateTimeIndex := 0;
 end;
 
 procedure TFormWeather.FormDestroy(Sender: TObject);

@@ -20,6 +20,10 @@ type
     WeatherMemo: TMemo;
     Label1: TLabel;
     Panel3: TPanel;
+    GroupBox1: TGroupBox;
+    rbNow: TRadioButton;
+    rbTomorrow: TRadioButton;
+    rbATomorrow: TRadioButton;
     procedure FormCreate(Sender: TObject);
     procedure routeClick(Sender: TObject);
     procedure mapMapDblClick(sender: TObject; const Lat, Lng: Double);
@@ -57,6 +61,7 @@ begin
   // Important, set a cache directory to limit calls to the api weather
   map.localcache := ExtractfilePath(ParamStr(0)) + 'cache';
 
+
   FInfoWindow := map.AddInfoWindow(0, 0);
   FInfoWindow.Visible := false;
 
@@ -64,12 +69,12 @@ begin
   map.Routing.EditOnClick := false;
 
   // get your key from http://openweathermap.org/appid
-  map.OpenWeather.Key := 'your key here';
+  map.OpenWeather.Key := 'your_key_here';
 
   // if localcache by default the data is kept cached for 60 minutes
   map.OpenWeather.MaxMinutesInCache := 60;
 
-  map.OpenWeather.Lang := 'en';
+  map.OpenWeather.Lang := 'fr';
 
 
   // clic to meteo station icon
@@ -184,6 +189,23 @@ begin
   // By default the weather points are spaced 25km apart
   // change to 20km
   sender.KmDistanceBetweenWeatherStations := 20;
+
+  (*
+   value from 0 to 39 to select date and time in 3-hour increments
+
+     0 = now
+     1 = now + 3 hours
+     8 = tomorrow at the same time
+  *)
+
+   if rbNow.Checked then
+    Sender.WeatherDateIndex := 0
+   else
+   if rbTomorrow.Checked then
+    Sender.WeatherDateIndex := 8  // +24h
+   else
+    Sender.WeatherDateIndex := 16; // +48h
+
 
    // Get the weather along the road
   Sender.ShowWeather := true;

@@ -10,9 +10,7 @@ object Form6: TForm6
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
     Left = 0
@@ -20,53 +18,60 @@ object Form6: TForm6
     Width = 668
     Height = 41
     Align = alTop
+    BevelOuter = bvNone
     TabOrder = 0
     object route: TButton
       AlignWithMargins = True
-      Left = 536
-      Top = 4
+      Left = 537
+      Top = 3
       Width = 124
-      Height = 33
+      Height = 35
       Margins.Right = 7
       Align = alRight
       Caption = 'Calculate the route'
       TabOrder = 0
       OnClick = routeClick
+      ExplicitLeft = 536
+      ExplicitTop = 4
+      ExplicitHeight = 33
     end
     object Panel3: TPanel
-      Left = 1
-      Top = 1
-      Width = 532
-      Height = 39
+      Left = 0
+      Top = 0
+      Width = 534
+      Height = 41
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 1
       OnResize = Panel3Resize
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 532
+      ExplicitHeight = 39
       object rend: TEdit
         AlignWithMargins = True
-        Left = 261
+        Left = 263
         Top = 10
         Width = 268
-        Height = 19
+        Height = 21
         Margins.Top = 10
         Margins.Bottom = 10
         Align = alRight
         TabOrder = 0
         Text = 'end-route'
-        ExplicitHeight = 21
+        ExplicitLeft = 261
       end
       object start: TEdit
         AlignWithMargins = True
         Left = 3
         Top = 10
         Width = 252
-        Height = 19
+        Height = 21
         Margins.Top = 10
         Margins.Bottom = 10
         Align = alLeft
         TabOrder = 1
         Text = 'start-route'
-        ExplicitHeight = 21
       end
     end
   end
@@ -110,23 +115,85 @@ object Form6: TForm6
   end
   object map: TECNativeMap
     Left = 0
-    Top = 41
+    Top = 92
     Width = 668
-    Height = 383
+    Height = 332
+    Cursor = crDefault
     HideShapesWhenZoom = False
     HideShapesWhenWaitingTile = False
     DblClickZoom = False
     MouseWheelZoom = True
-    Latitude = 43.232951000000000000
-    Longitude = 0.078081999999994910
+    latitude = 43.232951000000000000
+    longitude = 0.078081999999994910
     Reticle = False
     ReticleColor = clBlack
     ZoomScaleFactor = 0
+    NumericalZoom = 14.000000000000000000
     DragRect = drSelect
     Draggable = True
+    OnlyOneOpenInfoWindow = False
+    WaitingForDestruction = False
     Active = True
+    NbrThreadTile = ttFour
     OnMapSelectRect = mapMapSelectRect
     OnMapDblClick = mapMapDblClick
     Align = alClient
+    TabOrder = 2
+    ExplicitTop = 104
+    ExplicitHeight = 320
+  end
+  object GroupBox1: TGroupBox
+    AlignWithMargins = True
+    Left = 10
+    Top = 44
+    Width = 655
+    Height = 45
+    Margins.Left = 10
+    Align = alTop
+    Caption = 'Departure date'
+    TabOrder = 3
+    ExplicitLeft = 3
+    ExplicitWidth = 662
+    object rbNow: TRadioButton
+      AlignWithMargins = True
+      Left = 5
+      Top = 18
+      Width = 49
+      Height = 22
+      Align = alLeft
+      Caption = 'Now'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+      ExplicitLeft = 24
+      ExplicitTop = 17
+      ExplicitHeight = 17
+    end
+    object rbTomorrow: TRadioButton
+      AlignWithMargins = True
+      Left = 60
+      Top = 18
+      Width = 78
+      Height = 22
+      Align = alLeft
+      Caption = 'Tomorrow'
+      TabOrder = 1
+      ExplicitLeft = 51
+      ExplicitTop = 15
+      ExplicitHeight = 28
+    end
+    object rbATomorrow: TRadioButton
+      AlignWithMargins = True
+      Left = 144
+      Top = 18
+      Width = 113
+      Height = 22
+      Align = alLeft
+      Caption = 'After tomorrow'
+      TabOrder = 2
+      ExplicitLeft = 272
+      ExplicitTop = 16
+      ExplicitHeight = 17
+    end
   end
 end
