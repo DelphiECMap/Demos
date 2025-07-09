@@ -56,8 +56,17 @@ object FormWMS: TFormWMS
       Margins.Left = 10
       Align = alTop
       Caption = 'Opacity'
-      ExplicitLeft = 3
       ExplicitWidth = 51
+    end
+    object info: TLabel
+      AlignWithMargins = True
+      Left = 3
+      Top = 412
+      Width = 247
+      Height = 20
+      Align = alBottom
+      Alignment = taCenter
+      ExplicitWidth = 4
     end
     object ckOverlay: TCheckBox
       AlignWithMargins = True
@@ -69,7 +78,6 @@ object FormWMS: TFormWMS
       Caption = 'Visible overlay'
       TabOrder = 0
       OnClick = ckOverlayClick
-      ExplicitWidth = 179
     end
     object ckLinkedMap: TCheckBox
       AlignWithMargins = True
@@ -81,9 +89,6 @@ object FormWMS: TFormWMS
       Caption = 'Overlay linked to visible map area'
       TabOrder = 1
       OnClick = ckLinkedMapClick
-      ExplicitLeft = 24
-      ExplicitTop = 80
-      ExplicitWidth = 153
     end
     object tkOpacity: TTrackBar
       AlignWithMargins = True
@@ -127,6 +132,5 @@ object FormWMS: TFormWMS
     OnMapSelectRect = mapMapSelectRect
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 433
   end
 end

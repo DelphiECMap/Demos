@@ -16,6 +16,7 @@ type
     tkOpacity: TTrackBar;
     lbSelect: TLabel;
     Label2: TLabel;
+    info: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure ckOverlayClick(Sender: TObject);
     procedure ckLinkedMapClick(Sender: TObject);
@@ -25,6 +26,9 @@ type
   private
     { Déclarations privées }
    FECOverlayWMS : TECOverlayWMS;
+
+   procedure doBeforeLoad(Sender: TObject);
+   procedure doLoad(Sender: TObject);
   public
     { Déclarations publiques }
   end;
@@ -48,6 +52,12 @@ begin
     'Labels-WMS' // Name of the group containing the overlay, which is a TECShapeMarker
    );
 
+   //Triggered just before the call to the WMS server
+   //If the image is already in the cache, then the event does not occur.
+   FECOverlayWMS.OnBeforeLoad := doBeforeLoad;
+
+   // Triggered when image has been retrieved either from cache or from WMS server
+   FECOverlayWMS.onLoad       := doLoad;
 
    (* you can modify after creation
 
@@ -63,6 +73,16 @@ begin
   map.TileServer := tsArcGisWorldImagery; // in uecMapUtil
 
 
+end;
+
+procedure TFormWMS.doBeforeLoad(Sender: TObject);
+begin
+   info.Caption := 'Loading...';
+end;
+
+procedure TFormWMS.doLoad(Sender: TObject);
+begin
+  info.Caption := '';
 end;
 
 // The overlay is link to the visible area of the map or not
