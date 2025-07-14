@@ -53,7 +53,7 @@ type
     procedure SequencesChange(Sender: TObject);
     procedure mapChangeMapZoom(Sender: TObject);
   private
-    { Déclarations privées }
+    { D clarations priv es }
    SelectedSequence   : TMapillarySequence;
    SelectedImageIndex : integer;
 
@@ -81,7 +81,7 @@ type
                                        MappilarySequence: TMapillarySequence;
                                        var SequenceColor:TColor) ;
   public
-    { Déclarations publiques }
+    { D clarations publiques }
   end;
 
 var
@@ -97,7 +97,7 @@ implementation
 procedure TForm2.FormCreate(Sender: TObject);
 begin
 
- caption := 'Mapillary Layer for TECNativeMap - © '+inttostr(CurrentYear)+' E. Christophe'  ;
+ caption := 'Mapillary Layer for TECNativeMap -   '+inttostr(CurrentYear)+' E. Christophe'  ;
 
  SeqAniIndicator.Visible := false;
  SeqAniIndicator.Enabled := false;
@@ -134,7 +134,7 @@ begin
  // on top of all over items, even if zindex <
  PositionView.setFocus;
 
- mapChangeMapZoom(map);
+ map.Zoom := 16;
 
 
 end;

@@ -44,6 +44,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.Trimming = None
         Text = 'From'
       end
     end
@@ -70,6 +71,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.Trimming = None
         Text = 'To'
       end
     end
@@ -88,6 +90,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
       Position.Y = -34.000000000000000000
       TabOrder = 0
       Text = 'Add Route'
+      TextSettings.Trimming = None
       OnClick = RouteAddClick
     end
     object rbDriving: TRadioButton
@@ -130,9 +133,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
     object engine: TComboBox
       Hint = 'routing engine'
       Items.Strings = (
-        'MapBox'
-        'MapQuest'
-        'MapZen'
+        'Valhalla'
         'OSRM'
         'OpenStreetMap')
       Position.X = 104.000000000000000000
@@ -159,6 +160,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
       Size.Height = 17.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
       Text = 'Routing engine :'
       TabOrder = 7
     end
@@ -195,6 +197,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
         Size.Height = 36.000000000000000000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
+        TextSettings.Trimming = None
       end
     end
     object Rectangle2: TRectangle
@@ -218,6 +221,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
         Size.PlatformDefault = False
         TextSettings.FontColor = claWhite
         TextSettings.HorzAlign = Center
+        TextSettings.Trimming = None
       end
     end
     object Rectangle3: TRectangle
@@ -238,6 +242,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
         Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextSettings.HorzAlign = Center
+        TextSettings.Trimming = None
       end
     end
   end
@@ -258,11 +263,17 @@ object FDemoNativeRoute: TFDemoNativeRoute
       Reticle = False
       ReticleColor = claBlack
       ZoomScaleFactor = 0
+      NumericalZoom = 14.000000000000000000
       DragRect = drNone
       Draggable = True
+      FullZoomAfterGestureZoom = False
+      TwoOrMoreFingers = False
       OnlyOneOpenInfoWindow = False
+      WaitingForDestruction = False
       Active = True
+      NbrThreadTile = ttFour
       Align = Client
+      Cursor = crDefault
       ClipChildren = True
       Size.Width = 825.000000000000000000
       Size.Height = 344.000000000000000000
@@ -291,6 +302,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
         Position.Y = 4.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.HorzAlign = Center
+        TextSettings.Trimming = None
       end
       object CopyrightMap: TLabel
         Align = Right
@@ -308,6 +320,7 @@ object FDemoNativeRoute: TFDemoNativeRoute
         TextSettings.FontColor = xFFB9B5B5
         TextSettings.HorzAlign = Center
         TextSettings.WordWrap = False
+        TextSettings.Trimming = None
         Text = 'CopyrightMap'
       end
     end

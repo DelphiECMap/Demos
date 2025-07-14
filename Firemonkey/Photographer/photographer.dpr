@@ -3,7 +3,7 @@ program photographer;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  UPhotographer in 'UPhotographer.pas' {Form2};
+  UPhotographer in 'UPhotographer.pas' ;
 
 {$R *.res}
 
@@ -12,6 +12,6 @@ begin
   ReportMemoryLeaksOnShutDown :=true;
  {$ENDIF}
   Application.Initialize;
-  Application.CreateForm(TForm2, Form2);
+  Application.CreateForm(TFormPhoto, FormPhoto);
   Application.Run;
 end.

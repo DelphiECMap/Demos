@@ -138,6 +138,7 @@ object FormSwitch: TFormSwitch
     Top = 3
     Width = 618
     Height = 317
+    Cursor = crDefault
     HideShapesWhenZoom = False
     HideShapesWhenWaitingTile = False
     DblClickZoom = True

@@ -243,6 +243,7 @@ object Form27: TForm27
     Top = 65
     Width = 763
     Height = 480
+    Cursor = crDefault
     HideShapesWhenZoom = False
     HideShapesWhenWaitingTile = False
     DblClickZoom = True
@@ -255,7 +256,6 @@ object Form27: TForm27
     NumericalZoom = 14.000000000000000000
     DragRect = drNone
     Draggable = True
-    TileServer = tsOsmFr
     OnlyOneOpenInfoWindow = False
     WaitingForDestruction = False
     Active = True

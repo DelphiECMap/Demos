@@ -26,6 +26,7 @@ object FormOverPass: TFormOverPass
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.HorzAlign = Center
+      TextSettings.Trimming = None
       Text = 'Query'
       TabOrder = 0
       object btnExecQuery: TButton
@@ -40,6 +41,7 @@ object FormOverPass: TFormOverPass
         TabOrder = 0
         Text = 'Execute query'
         TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.Trimming = None
         OnClick = btnExecQueryClick
       end
     end
@@ -68,6 +70,7 @@ object FormOverPass: TFormOverPass
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.HorzAlign = Center
+      TextSettings.Trimming = None
       TabOrder = 1
     end
     object Panel2: TPanel
@@ -90,6 +93,7 @@ object FormOverPass: TFormOverPass
         Size.PlatformDefault = False
         TabOrder = 1
         Text = 'Restaurants'
+        TextSettings.Trimming = None
         OnClick = btRestaurantsClick
       end
       object btStreets: TButton
@@ -105,6 +109,7 @@ object FormOverPass: TFormOverPass
         Size.PlatformDefault = False
         TabOrder = 0
         Text = 'Streets'
+        TextSettings.Trimming = None
         OnClick = btStreetsClick
       end
       object Rectangle1: TRectangle
@@ -137,6 +142,7 @@ object FormOverPass: TFormOverPass
           Size.PlatformDefault = False
           TabOrder = 2
           Text = 'find Tag'
+          TextSettings.Trimming = None
           OnClick = btTAgClick
         end
         object Label1: TLabel
@@ -145,6 +151,7 @@ object FormOverPass: TFormOverPass
           Size.Width = 25.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Trimming = None
           Text = 'Key:'
           TabOrder = 4
         end
@@ -154,6 +161,7 @@ object FormOverPass: TFormOverPass
           Size.Width = 39.000000000000000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Trimming = None
           Text = 'Value:'
           TabOrder = 3
         end
@@ -215,6 +223,7 @@ object FormOverPass: TFormOverPass
         CustomIcon = <
           item
           end>
+        TextSettings.Trimming = None
         IsSelected = True
         Size.Width = 44.000000000000000000
         Size.Height = 26.000000000000000000
@@ -226,8 +235,6 @@ object FormOverPass: TFormOverPass
         ExplicitSize.cy = 26.000000000000000000
         object map: TECNativeMap
           Touch.InteractiveGestures = [Zoom, Rotate, DoubleTap]
-          FocusedShapeWhenClicking = True
-          FocusedShapeWhenHovering = False
           HideShapesWhenZoom = False
           HideShapesWhenWaitingTile = False
           DblClickZoom = True
@@ -243,7 +250,6 @@ object FormOverPass: TFormOverPass
           Draggable = True
           FullZoomAfterGestureZoom = False
           TwoOrMoreFingers = False
-          TileServer = tsOsmFr
           OnlyOneOpenInfoWindow = False
           WaitingForDestruction = False
           Active = True
@@ -251,6 +257,8 @@ object FormOverPass: TFormOverPass
           OnMapSelectRect = mapMapSelectRect
           OnShapeClick = mapShapeClick
           Align = Client
+          Cursor = crDefault
+          TabOrder = 0
           ClipChildren = True
           Size.Width = 642.000000000000000000
           Size.Height = 397.000000000000000000
@@ -281,6 +289,7 @@ object FormOverPass: TFormOverPass
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             TextSettings.HorzAlign = Center
             TextSettings.WordWrap = False
+            TextSettings.Trimming = None
             Text = 'right click + drag to select a zone and import OSM data'
             TabOrder = 0
           end
@@ -289,6 +298,7 @@ object FormOverPass: TFormOverPass
             Position.Y = 4.000000000000000000
             TabOrder = 2
             Text = 'Clear Map'
+            TextSettings.Trimming = None
             OnClick = ClearMapClick
           end
         end
@@ -297,6 +307,7 @@ object FormOverPass: TFormOverPass
         CustomIcon = <
           item
           end>
+        TextSettings.Trimming = None
         IsSelected = False
         Size.Width = 45.000000000000000000
         Size.Height = 26.000000000000000000

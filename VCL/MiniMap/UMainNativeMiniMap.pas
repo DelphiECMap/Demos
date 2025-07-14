@@ -107,19 +107,15 @@ begin
  FECMiniMap.TileServer := tsNone;
 
  case tileserver.ItemIndex of
-  0 :  map.TileServer := tsOpenMapQuest;
-  1 :  begin
-        map.TileServer        := tsOpenMapQuestSat;
-        FECMiniMap.TileServer := tsOpenMapQuest;
-       end;
-  2 :  map.TileServer := tsOSM;
-  3 :  map.TileServer := tsCloudMade;
-  4 :  map.TileServer := tsOpenCycleMap;
-  5 :  map.TileServer := tsOPNV;
 
-  6 :  map.tileServer := tsArcGisWorldTopoMap;
-  7 :  map.tileServer := tsArcGisWorldStreetMap;
-  8 :  begin
+  0 :  map.TileServer := tsOSM;
+
+  1 :  map.TileServer := tsOpenCycleMap;
+  2 :  map.TileServer := tsOPNV;
+
+  3 :  map.tileServer := tsArcGisWorldTopoMap;
+  4 :  map.tileServer := tsArcGisWorldStreetMap;
+  5 :  begin
           map.tileServer        := tsArcGisWorldImagery;
           FECMiniMap.TileServer := tsArcGisWorldStreetMap;
        end;

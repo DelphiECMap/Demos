@@ -224,15 +224,10 @@ begin
 
   case engine.ItemIndex of
     0:
-      map.Routing.engine(reMapBox);
+      map.Routing.engine(reValhalla);
     1:
-      map.Routing.engine(reMapQuest);
-    // USE YOUR KEY !  
-    2:
-      map.Routing.engine(reMapZen, 'valhalla-your_key_here');
-    3:
       map.Routing.engine(reOSRM);
-    4 : map.Routing.Engine(reOpenStreetMap);
+    2 : map.Routing.Engine(reOpenStreetMap);
   end;
 
   // then empty string is for optionnal params, here none

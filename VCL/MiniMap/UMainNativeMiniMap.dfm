@@ -10,28 +10,36 @@ object FormNativeMiniMap: TFormNativeMiniMap
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = False
   Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 13
   object Map: TECNativeMap
     Left = 0
     Top = 0
     Width = 640
     Height = 592
+    Cursor = crDefault
     HideShapesWhenZoom = False
+    HideShapesWhenWaitingTile = False
     DblClickZoom = True
     MouseWheelZoom = True
-    Latitude = 43.214434375074640000
-    Longitude = 0.105571746826171900
+    latitude = 43.214434375074640000
+    longitude = 0.105571746826171900
+    Reticle = False
+    ReticleColor = clBlack
     ZoomScaleFactor = 0
+    NumericalZoom = 14.000000000000000000
     ZoomEffect = False
     DragRect = drNone
     Draggable = True
+    OnlyOneOpenInfoWindow = False
+    WaitingForDestruction = False
+    Active = True
+    NbrThreadTile = ttFour
     OnChangeMapZoom = MapChangeMapZoom
     Align = alClient
+    TabOrder = 0
     DesignSize = (
       640
       592)
@@ -54,10 +62,7 @@ object FormNativeMiniMap: TFormNativeMiniMap
       TabOrder = 1
       OnChange = tileserverChange
       Items.Strings = (
-        'MapQuest'
-        'MapQuestSat'
         'OSM'
-        'CloudMade'
         'Cycle Map'
         'OPVN'
         'ArcGis World Topo Map'

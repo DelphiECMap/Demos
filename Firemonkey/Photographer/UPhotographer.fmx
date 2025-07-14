@@ -1,4 +1,4 @@
-object Form2: TForm2
+object FormPhoto: TFormPhoto
   Left = 0
   Top = 0
   Caption = 'photographer drone'
@@ -35,6 +35,7 @@ object Form2: TForm2
       Text = 'Launch drones'
       TextSettings.Font.Size = 18.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.Trimming = None
       OnClick = launchdronesClick
     end
     object TotalPhotos: TLabel
@@ -48,6 +49,7 @@ object Form2: TForm2
       TextSettings.Font.Size = 20.000000000000000000
       TextSettings.FontColor = claWhitesmoke
       TextSettings.HorzAlign = Center
+      TextSettings.Trimming = None
     end
     object Rectangle1: TRectangle
       Align = Bottom
@@ -67,6 +69,7 @@ object Form2: TForm2
         Size.PlatformDefault = False
         TextSettings.Font.Size = 14.000000000000000000
         TextSettings.FontColor = claWhitesmoke
+        TextSettings.Trimming = None
         Text = 'Distance (in meters) between photos'
         object distance: TSpinBox
           Touch.InteractiveGestures = [LongTap, DoubleTap]
@@ -137,16 +140,24 @@ object Form2: TForm2
       HideShapesWhenWaitingTile = False
       DblClickZoom = True
       MouseWheelZoom = True
-      Latitude = 43.232951000000000000
-      Longitude = 0.078081999999994910
+      latitude = 43.232951000000000000
+      longitude = 0.078081999999994910
       Reticle = False
       ReticleColor = claBlack
       ZoomScaleFactor = 0
+      NumericalZoom = 14.000000000000000000
       DragRect = drNone
       Draggable = True
-      TileServer = tsHereHybrid
+      FullZoomAfterGestureZoom = False
+      TwoOrMoreFingers = False
+      TileServer = tsArcGisWorldImagery
+      OnlyOneOpenInfoWindow = False
+      WaitingForDestruction = False
       Active = True
+      NbrThreadTile = ttFour
       Align = Client
+      Cursor = crDefault
+      ClipChildren = True
       Size.Width = 762.000000000000000000
       Size.Height = 480.000000000000000000
       Size.PlatformDefault = False

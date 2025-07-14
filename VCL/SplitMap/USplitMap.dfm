@@ -30,7 +30,6 @@ object FormSplitMap: TFormSplitMap
     Padding.Bottom = 3
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 486
     object Label1: TLabel
       AlignWithMargins = True
       Left = 6
@@ -78,9 +77,6 @@ object FormSplitMap: TFormSplitMap
       Caption = 'Split Map'
       TabOrder = 0
       OnClick = ckSplitClick
-      ExplicitLeft = 24
-      ExplicitTop = 48
-      ExplicitWidth = 97
     end
     object cbMainMap: TComboBox
       AlignWithMargins = True
@@ -97,11 +93,7 @@ object FormSplitMap: TFormSplitMap
         'OpenStreetMap'
         'Cycle Map'
         'OPVN'
-        'Bing Road'
-        'Bing Aerial')
-      ExplicitLeft = 6
-      ExplicitTop = 46
-      ExplicitWidth = 132
+        'ArcGis Aerial')
     end
     object cbLeftMap: TComboBox
       AlignWithMargins = True
@@ -118,9 +110,7 @@ object FormSplitMap: TFormSplitMap
         'OpenStreetMap'
         'Cycle Map'
         'OPVN'
-        'Bing Road'
-        'Bing Aerial')
-      ExplicitTop = 167
+        'ArcGis Aerial')
     end
   end
   object map: TECNativeMap
@@ -147,9 +137,5 @@ object FormSplitMap: TFormSplitMap
     NbrThreadTile = ttFour
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 152
-    ExplicitTop = 144
-    ExplicitWidth = 256
-    ExplicitHeight = 256
   end
 end

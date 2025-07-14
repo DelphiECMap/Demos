@@ -66,8 +66,8 @@ begin
 
   FSwitchServer2.OnSwitch := doOnSwitch;
 
-  FSwitchServer2.TileServer := tsIgn;
-  FSwitchServer2.MapStyle   :=  'SCAN';
+  FSwitchServer2.TileServer := tsOPNV;
+
 
   // You can specify your own server like this
   // FSwitchServer2.CustomTileServer := getTile;

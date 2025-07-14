@@ -61,8 +61,7 @@ begin
   FPosition.filename := GOOGLE_RED_DOT_ICON; // unit uecMapUtil also BLUE,YELLOW and GREEN
   FPosition.YAnchor := 32;
 
-  // Enter your access key, see  https://www.mapillary.com/developer
-  FMapillaryComponent.AccessToken := 'ENTER-YOUR-KEY';
+  
   FMapillaryComponent.visible := true;
 
 end;
