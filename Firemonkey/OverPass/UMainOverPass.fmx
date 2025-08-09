@@ -325,8 +325,8 @@ object FormOverPass: TFormOverPass
           Size.Height = 429.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Viewport.Width = 638.000000000000000000
-          Viewport.Height = 425.000000000000000000
+          Viewport.Width = 642.000000000000000000
+          Viewport.Height = 429.000000000000000000
         end
       end
     end

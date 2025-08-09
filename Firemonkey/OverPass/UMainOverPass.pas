@@ -156,9 +156,20 @@ begin
   LayerAniIndicator.Enabled := false;
  end;
 
-  mmomdata.Lines.BeginUpdate;
-  mmomdata.Lines.Text := value.Data;
-  mmomdata.Lines.EndUpdate;
+
+    mmomdata.Lines.BeginUpdate;
+    if length(value.Data)<500000 then
+        mmomdata.Lines.Text := value.Data
+      else
+      begin
+
+        mmomdata.Lines.Text := 'XML data is truncated because TMemo is slow.'+
+                                #13#10#13#10+
+                                copy(value.Data,1,500000);
+
+      end;
+    mmomdata.Lines.EndUpdate;
+
 
  
 end;
