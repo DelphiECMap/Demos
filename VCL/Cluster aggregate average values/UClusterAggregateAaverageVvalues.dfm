@@ -12,27 +12,11 @@ object FormCluster: TFormCluster
   Font.Style = []
   OnCreate = FormCreate
   TextHeight = 15
-  object Loading: TLabel
+  object map: TECNativeMap
     Left = 0
     Top = 0
     Width = 624
-    Height = 21
-    Align = alTop
-    Alignment = taCenter
-    Caption = 'Loading data ...'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
-    ParentFont = False
-    ExplicitWidth = 116
-  end
-  object map: TECNativeMap
-    Left = 0
-    Top = 21
-    Width = 624
-    Height = 420
+    Height = 441
     Cursor = crDefault
     HideShapesWhenZoom = False
     HideShapesWhenWaitingTile = False
@@ -53,9 +37,7 @@ object FormCluster: TFormCluster
     OnLoad = doOnLoad
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 128
-    ExplicitTop = 120
-    ExplicitWidth = 256
-    ExplicitHeight = 256
+    ExplicitTop = 21
+    ExplicitHeight = 420
   end
 end

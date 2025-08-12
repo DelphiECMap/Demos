@@ -10,7 +10,6 @@ uses
 type
   TFormCluster = class(TForm)
     map: TECNativeMap;
-    Loading: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure doOnLoad(Sender: TObject; const GroupName: string;
       const FinishLoading: Boolean);
@@ -41,6 +40,10 @@ procedure TFormCluster.FormCreate(Sender: TObject);
 begin
  map.Zoom := 2;
 
+ caption := 'Loading data...'  ;
+
+ map.TileServer := tsArcGisWorldImagery;
+
  // Create a group that will contain points representing earthquakes.
  FEarthquakes := map['earthquakes'];
 
@@ -62,7 +65,14 @@ begin
  Map.OnLoad   := doOnLoad;
 
  // Load GeoJSON feed of all earthquakes from the past 30 days. Sourced from the USGS
+ // The properties of the geojson are: 
+ //       "mag","place","time","updated","tz","url","detail","felt","cdi","mmi","alert","status","tsunami","sig","net","ak","code",
+ //       "ids","sources",ak,"types","nst","dmin","rms","gap","magType","type","title"
+ 
+ // You can access it using the syntax your_marker[property], for example your_marker[‘mag’].
+ 
  FEarthquakes.LoadFromFile('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson');
+ // Here, the file has not yet been loaded; it is loaded in a separate thread.
 
  // Enable clusters for the group
  FEarthquakes.Clusterable := true;
@@ -70,7 +80,7 @@ begin
  FEarthQuakes.ClusterManager.WidthHeight       := 50;
  // store the list of markers grouped in the cluster,
  // this will allow the average magnitude to be calculated
- FEarthQuakes.ClusterManager.FillClusterList   := true;
+ FEarthQuakes.ClusterManager.FillClusterList   := true; // default false
  // This event will allow us to change the color and size of the cluster.
  FEarthQuakes.ClusterManager.OnColorSizeCluster:= doOnGetClusterColorSize;
  // This event will allow us to modify the text of the cluster.
@@ -78,11 +88,11 @@ begin
 
  end;
 
-// hide the ‘Loading’ label when the group FEarthquakes is loaded
+// doOnLoad will be triggered when the file has finished loading
 procedure TFormCluster.doOnLoad(Sender: TObject; const GroupName: string;
   const FinishLoading: Boolean);
 begin
- Loading.Visible := not (GroupName = FEarthquakes.Name);
+ caption := 'Total Earthquakes (Sourced from the USGS) : '+inttostr(FEarthquakes.Markers.Count);
 end;
 
 
@@ -101,7 +111,7 @@ begin
 
  for i := 0 to MaxValues-1 do
    begin
-      result := result + StrToDoubleDef(Cluster.Shapes[i][PropValue],0);
+      result := result + StrToDoubleDef(Cluster.Shapes[i][PropValue],0); // StrToDoubleDef in unit uecmaputil
    end;
 
    result := result / MaxValues;
@@ -116,9 +126,10 @@ procedure TFormCluster.doOnGetClusterColorSize(const Cluster: TECCluster; var Co
     var WidthHeight, FontSize: integer; var CStyle: TClusterStyle) ;
 var AValue : double;
 begin
+  // calculate the average magnitude of the cluster
   AValue := getAggregateAverageValues(Cluster,'mag');
-
-  Cluster.Hint := DoubleToStrDigit(AValue,2);
+  // To avoid having to recalculate in OnClusterGetText, we temporarily store the average in Hint.
+  Cluster.Hint := DoubleToStrDigit(AValue,2); // unit uecmaputil
 
   if AValue<=3 then
   begin
@@ -146,8 +157,8 @@ begin
    WidthHeight := 50;
    FontSize    := 11;
   end;
-
-   TextColor := GetContrastingColor(Color);
+   // Ensure that the text is clearly visible depending on the color of the cluster.
+   TextColor := GetContrastingColor(Color); // unit uecmaputil
 
 end;
 
