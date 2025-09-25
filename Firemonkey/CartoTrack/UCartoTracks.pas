@@ -1493,7 +1493,8 @@ begin
 
   FECMappilaryLayer.OpenWindow(MappilarySequence.images[PhotoIndex].Lat,
                                MappilarySequence.images[PhotoIndex].Lng,
-                               '<img src="' + MappilarySequence.images[photoindex].Url256 + '">'
+                               '<img src="' + MappilarySequence.images[photoindex].Url256 + '">',
+							   230
                                );
 
 end;
