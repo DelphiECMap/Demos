@@ -97,6 +97,10 @@ begin
   CSVGroup.Markers.Labels.Align     := laBottom;
   CSVGroup.Markers.Labels.MinZoom   := 8;
 
+  CSVGroup.pois.Labels.LabelType := ltProperty;
+  CSVGroup.pois.Labels.Align     := laBottom;
+  CSVGroup.pois.Labels.MinZoom   := 8;
+
 
 
   CSVGroup.polygones.Labels.LabelType := ltProperty;
@@ -116,12 +120,15 @@ begin
   CSVGroup.CSV.OnCreateWKTObject := doOnCreateWKTObject;
 
   // filter csv data
-   CSVGroup.CSV.OnFilterCSV := doOnFilterCSV;
+ //  CSVGroup.CSV.OnFilterCSV := doOnFilterCSV;
 
   // connection to the end of the load
   map.OnLoad                       := doOnLoad;
   // react to the click on an item
   map.OnShapeClick                 := doOnShapeClick;
+
+
+ // map.Use2DCanvas := false;
 
   ValidateEdit(delimiter);
   ValidateEdit(latitude);
@@ -142,7 +149,9 @@ begin
     Fields.Items.Clear;
     DisplayLabel.Checked := false;
 
-    csvdata.Lines.LoadFromFile(opendialog1.filename) ;
+    // Display only the first 50 lines to avoid crashing with a file that is too large;
+    // this is sufficient to see the structure.
+    csvdata.Lines.assign(GetFirstXLinesStream(opendialog1.filename,50)) ; // use uecMapUtil
 
     // load the CSV asynchronously
     CSVGroup.csv.ASyncLoadFromFile(opendialog1.filename);
@@ -155,16 +164,18 @@ end;
 // Manual creation of each point
 // Data contains the CSV values for the point
 procedure TForm29.doOnCreateCSVPoint(const Group: TECShapes; var CSVPoint: TECShape; const Lat, Lng: double; const Data:TStringList)  ;
-var  M:TECShapeMarker;
+var  M:TECShapePOI;//TECShapeMarker;
+
 begin
 
  // create new marker
- M := Group.addMarker(lat,lng);;
+ M :=  Group.AddPoi(lat,lng);// Group.addMarker(lat,lng);
  CSVPoint := M ;
 
  // marker design
  M.Width     := 12;
- M.StyleIcon := siFlat;
+ M.Height    := 12;
+// M.StyleIcon := siFlat;
 
  // we calculate its color according to its index number
  M.Color     := GetHashColor(inttostr(M.IndexOf));
@@ -177,8 +188,8 @@ end;
 // valid csv data , default true
 procedure TForm29.doOnFilterCSV(const Data: TStringList;var validCSV:boolean);
 begin
-  // if (data.Count>2) and (pos('POLYGON',data[7])<1) then
-  // validCSV := (data[2]<>'relation');
+   if (data.Count>2) and (pos('POLYGON',data[7])<1) then
+   validCSV := (data[2]<>'relation');
 end;
 
 // fired after creation wkt object
@@ -189,11 +200,24 @@ begin
  // we calculate its color according to its index number
 
  if WKTObject is TECShapePolygone then
-   TECShapePolygone(WKTObject).FillColor := GetHashColor(inttostr(WKTObject.IndexOf))
+ begin
+   TECShapePolygone(WKTObject).FillColor := GetHashColor(inttostr(WKTObject.IndexOf))  ;
+   TECShapePolygone(WKTObject).FillOpacity := 50;
+   WKTObject.Color     := GetHashColor(inttostr(WKTObject.IndexOf));
+ end
  else
  begin
    WKTObject.Color     := GetHashColor(inttostr(WKTObject.IndexOf));
  end;
+
+
+
+
+ // create new marker
+// WKTObject.getBounds;
+//  Group.addMarker(Lat,Lng);
+
+
 
  caption := inttostr(WKTObject.Group.Count) + ' items';
 end;
@@ -343,6 +367,7 @@ end;
 procedure TForm29.DisplayLabelClick(Sender: TObject);
 begin
   CSVGroup.Markers.Labels.Visible     := DisplayLabel.Checked;
+  CSVGroup.POIS.Labels.Visible     := DisplayLabel.Checked;
   CSVGroup.Polygones.Labels.Visible   := DisplayLabel.Checked;
   CSVGroup.lines.Labels.Visible   := DisplayLabel.Checked;
 end;
@@ -377,6 +402,7 @@ begin
 
   ValidateEdit(TEdit(sender));
 
+  CSVGroup.pois.labels.LabelProperty :=  TEdit(sender).Text;
   CSVGroup.markers.labels.LabelProperty :=  TEdit(sender).Text;
   CSVGroup.polygones.labels.LabelProperty :=  TEdit(sender).Text;
   CSVGroup.lines.labels.LabelProperty :=  TEdit(sender).Text;
@@ -386,6 +412,7 @@ end;
 
 procedure TForm29.FieldsSelect(Sender: TObject);
 begin
+ CSVGroup.pois.labels.LabelProperty := Fields.Text;
  CSVGroup.markers.labels.LabelProperty := Fields.Text;
  CSVGroup.polygones.labels.LabelProperty := Fields.Text;
  CSVGroup.lines.labels.LabelProperty := Fields.Text;
