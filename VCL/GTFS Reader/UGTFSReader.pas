@@ -509,6 +509,7 @@ begin
   // show alerts
   Alert.lines.clear;
   for i := 0 to FGTFS.Alerts.count - 1 do
+   if FGTFS.Alerts[i].description_text.translationList.count > 0 then
     Alert.lines.addStrings(Remplace_Str(FGTFS.Alerts[i].description_text.translationList[0].text,#10,#13#10));
 
 end;
