@@ -1,0 +1,75 @@
+object FormOpenSky: TFormOpenSky
+  Left = 0
+  Top = 0
+  Caption = 'OpenSky demo for TECNativeMap'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object map: TECNativeMap
+    Touch.InteractiveGestures = [Zoom, Rotate, DoubleTap]
+    HideShapesWhenZoom = False
+    HideShapesWhenWaitingTile = False
+    DblClickZoom = True
+    MouseWheelZoom = True
+    latitude = 43.232951000000000000
+    longitude = 0.078081999999994910
+    Reticle = False
+    ReticleColor = claBlack
+    ZoomScaleFactor = 0
+    NumericalZoom = 14.000000000000000000
+    DragRect = drNone
+    Draggable = True
+    FullZoomAfterGestureZoom = False
+    TwoOrMoreFingers = False
+    OnlyOneOpenInfoWindow = False
+    WaitingForDestruction = False
+    Active = True
+    NbrThreadTile = ttFour
+    Align = Client
+    Cursor = crDefault
+    TabOrder = 0
+    ClipChildren = True
+    Size.Width = 640.000000000000000000
+    Size.Height = 463.000000000000000000
+    Size.PlatformDefault = False
+    object AIndicator: TAniIndicator
+      Align = RightTop
+      Enabled = True
+      Position.X = 590.000000000000000000
+      Style = Circular
+      object Interval: TLabel
+        Align = Client
+        StyledSettings = [Family, FontColor]
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = '10'
+        TabOrder = 0
+      end
+    end
+  end
+  object Info: TLabel
+    Align = Bottom
+    Position.Y = 463.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.HorzAlign = Center
+    Text = 'Info'
+    TabOrder = 2
+  end
+  object Timer: TTimer
+    Enabled = False
+    OnTimer = TimerTimer
+    Left = 64
+    Top = 56
+  end
+end
