@@ -14,7 +14,7 @@ uses
   System.Threading,System.Math, FMX.Controls.Presentation, FMX.StdCtrls ,
 
   FMX.uecNativeMapControl,FMX.uecNativeShape,FMX.uecMapUtil,
-  OpenSkyAPI.REST;
+  OpenSkyAPI.REST, uecGraphics, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo;
 
 type
   TFormOpenSky = class(TForm)
@@ -23,8 +23,10 @@ type
     Info: TLabel;
     AIndicator: TAniIndicator;
     Interval: TLabel;
+    Log: TMemo;
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure mapShapesPaint(Sender: TObject; const canvas: TECCanvas);
     procedure TimerTimer(Sender: TObject);
   private
     { Déclarations privées }
@@ -160,12 +162,48 @@ begin
   end;
 end;
 
+
+// This event is triggered once the tiles and elements are displayed
+procedure TFormOpenSky.mapShapesPaint(Sender: TObject; const canvas: TECCanvas);
+var i:integer;
+    M:TECShape;
+begin
+
+ // display this information only when the map is idle
+ if not Map.isIdle then exit;
+
+ // log info for visible airplanes
+
+  Log.Lines.BeginUpdate;
+  Log.Lines.clear;
+
+  // The “Displayed” list contains all the elements in the group that are shown in the visible area of the map
+  // Displayed list is only valid in OnShapesPaint
+  for i := 0 to G_AirPlanes.Displayed.count-1 do
+  begin
+
+    M := G_AirPlanes.Displayed[i];
+
+  Log.Lines.Add(Format('%s | %s,%s | %s km/h | %s m | %s',
+        [M['callsign'].padleft(9),
+         DoubleToStrDigit(M.Latitude,4).padleft(7), DoubleToStrDigit(M.Longitude,4).padleft(7),
+         M['velocity'].padLeft(8), M['alt'].PadLeft(9),M['origin']]));
+  end;
+
+  Log.Lines.endUpdate;
+  // force redraw tmemo, bug firemonkey ?
+  Log.width := log.Width+1;
+
+end;
+
+
 // Map update using data returned by OpenSky
 procedure TFormOpenSky.UpdateMap(const States: TArray<TOpenSkyState>);
 var State: TOpenSkyState;
     M : TECShapeMarker;
 begin
  info.text := Format('[%s] %d airplanes ( remaining credit : %d)', [TimeToStr(Now), Length(States), FOpenSky.X_Rate_Limit_Remaining]) ;
+
 
  Map.BeginUpdate;
  G_AirPlanes.clear;
@@ -196,6 +234,12 @@ begin
 
      // show origin and altitude in hint
      M.hint := format('Origin %s'+#13#10+'Alt %.0fm',[State.OriginCountry, State.BaroAltitude]);
+
+     // Store the values we're interested in in the element's properties
+     M['origin']   := State.OriginCountry;
+     M['alt']      := DoubleToStrDigit(State.BaroAltitude,2);
+     M['callsign'] := State.Callsign;
+     M['velocity'] := DoubleToStrDigit(State.Velocity * 3.6,2);
     end;
   end;
 

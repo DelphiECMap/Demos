@@ -30,12 +30,13 @@ object FormOpenSky: TFormOpenSky
     WaitingForDestruction = False
     Active = True
     NbrThreadTile = ttFour
+    OnShapesPaint = mapShapesPaint
     Align = Client
     Cursor = crDefault
     TabOrder = 0
     ClipChildren = True
     Size.Width = 640.000000000000000000
-    Size.Height = 463.000000000000000000
+    Size.Height = 375.000000000000000000
     Size.PlatformDefault = False
     object AIndicator: TAniIndicator
       Align = RightTop
@@ -58,7 +59,7 @@ object FormOpenSky: TFormOpenSky
   end
   object Info: TLabel
     Align = Bottom
-    Position.Y = 463.000000000000000000
+    Position.Y = 375.000000000000000000
     Size.Width = 640.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
@@ -71,5 +72,21 @@ object FormOpenSky: TFormOpenSky
     OnTimer = TimerTimer
     Left = 64
     Top = 56
+  end
+  object Log: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    ReadOnly = True
+    StyledSettings = [Size, Style, FontColor]
+    TextSettings.Font.Family = 'Courier New'
+    Align = Bottom
+    CanFocus = False
+    Position.Y = 392.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 88.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 84.000000000000000000
   end
 end
