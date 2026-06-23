@@ -12,9 +12,9 @@ object FormSplitMap: TFormSplitMap
   Font.Style = []
   TextHeight = 15
   object Panel1: TPanel
-    Left = 480
+    Left = 456
     Top = 0
-    Width = 144
+    Width = 168
     Height = 441
     Align = alRight
     BevelOuter = bvNone
@@ -33,7 +33,7 @@ object FormSplitMap: TFormSplitMap
       AlignWithMargins = True
       Left = 6
       Top = 30
-      Width = 132
+      Width = 156
       Height = 17
       Margins.Top = 10
       Margins.Bottom = 6
@@ -51,7 +51,7 @@ object FormSplitMap: TFormSplitMap
       AlignWithMargins = True
       Left = 6
       Top = 90
-      Width = 132
+      Width = 156
       Height = 17
       Margins.Top = 6
       Margins.Bottom = 6
@@ -68,7 +68,7 @@ object FormSplitMap: TFormSplitMap
     object ckSplit: TCheckBox
       Left = 3
       Top = 3
-      Width = 138
+      Width = 162
       Height = 17
       Margins.Top = 6
       Margins.Bottom = 10
@@ -76,12 +76,13 @@ object FormSplitMap: TFormSplitMap
       Caption = 'Split Map'
       TabOrder = 0
       OnClick = ckSplitClick
+      ExplicitWidth = 138
     end
     object cbMainMap: TComboBox
       AlignWithMargins = True
       Left = 13
       Top = 56
-      Width = 125
+      Width = 149
       Height = 25
       Margins.Left = 10
       Align = alTop
@@ -92,14 +93,14 @@ object FormSplitMap: TFormSplitMap
         'OpenStreetMap'
         'Cycle Map'
         'OPVN'
-        'Bing Road'
-        'Bing Aerial')
+        'ArcGis WorldImagery')
+      ExplicitWidth = 125
     end
     object cbLeftMap: TComboBox
       AlignWithMargins = True
       Left = 13
       Top = 116
-      Width = 125
+      Width = 149
       Height = 25
       Margins.Left = 10
       Align = alTop
@@ -110,14 +111,14 @@ object FormSplitMap: TFormSplitMap
         'OpenStreetMap'
         'Cycle Map'
         'OPVN'
-        'Bing Road'
-        'Bing Aerial')
+        'ArcGis WorldImagery')
+      ExplicitWidth = 125
     end
   end
   object map: TECNativeMap
     Left = 0
     Top = 0
-    Width = 480
+    Width = 456
     Height = 441
     Cursor = crDefault
     HideShapesWhenZoom = False
@@ -139,5 +140,6 @@ object FormSplitMap: TFormSplitMap
     OnMapClick = mapMapClick
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 480
   end
 end

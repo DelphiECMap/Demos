@@ -58,9 +58,7 @@ begin
 
       2 : SelectMap.TileServer := tsOPNV;
 
-      3 : SelectMap.TileServer := tsBingRoad;
-
-      4 : SelectMap.TileServer := tsBingAerialLabels;
+      3 : SelectMap.TileServer := tsArcGisWorldImagery;
 
     end;
   end;
