@@ -18,9 +18,9 @@ type
     cbMainMap: TComboBox;
     Label2: TLabel;
     cbLeftMap: TComboBox;
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure ckSplitClick(Sender: TObject);
     procedure cbMainMapChange(Sender: TObject);
+    procedure mapMapClick(Sender: TObject; const Lat, Lng: Double);
   private
     { Déclarations privées }
   public
@@ -58,7 +58,9 @@ begin
 
       2 : SelectMap.TileServer := tsOPNV;
 
-      3 : SelectMap.TileServer := tsArcGisWorldImagery;
+      3 : SelectMap.TileServer := tsBingRoad;
+
+      4 : SelectMap.TileServer := tsBingAerialLabels;
 
     end;
   end;
@@ -75,18 +77,17 @@ begin
     map.SplitterMap.Width := 6;
     map.SplitterMap.Color := clBlack;
 
+    map.AddView(Map.RightMap);
+
     // select tiles server if necessary
     cbMainMapChange(cbLeftMap);
-  end;
+  end ;
+
 end;
 
-procedure TFormSplitMap.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TFormSplitMap.mapMapClick(Sender: TObject; const Lat, Lng: Double);
 begin
-  (*
-    At the moment there's a bug that prevents SplitMap from closing automatically when the component is destroyed,
-    so if you don't close it manually you'll have a memory leak.
-  *)
-  map.SplitMap := false;
+ map.Shapes.AddMarker(lat,lng);
 end;
 
 end.

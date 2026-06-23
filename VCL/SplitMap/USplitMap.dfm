@@ -10,7 +10,6 @@ object FormSplitMap: TFormSplitMap
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OnCloseQuery = FormCloseQuery
   TextHeight = 15
   object Panel1: TPanel
     Left = 480
@@ -93,7 +92,8 @@ object FormSplitMap: TFormSplitMap
         'OpenStreetMap'
         'Cycle Map'
         'OPVN'
-        'ArcGis Aerial')
+        'Bing Road'
+        'Bing Aerial')
     end
     object cbLeftMap: TComboBox
       AlignWithMargins = True
@@ -110,7 +110,8 @@ object FormSplitMap: TFormSplitMap
         'OpenStreetMap'
         'Cycle Map'
         'OPVN'
-        'ArcGis Aerial')
+        'Bing Road'
+        'Bing Aerial')
     end
   end
   object map: TECNativeMap
@@ -135,6 +136,7 @@ object FormSplitMap: TFormSplitMap
     WaitingForDestruction = False
     Active = True
     NbrThreadTile = ttFour
+    OnMapClick = mapMapClick
     Align = alClient
     TabOrder = 1
   end
