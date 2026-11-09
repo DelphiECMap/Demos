@@ -17,7 +17,7 @@ uses
   // Delphi units for managing the Windy API
   Windy.Webcams.Types, Windy.Webcams.Vcl, Windy.Webcams.Models, Windy.Webcams.Query,
   //
-  uecNativeMapControl, uecnativeshape;
+  uecNativeMapControl, uecnativeshape,uecGraphics,uecMapUtil;
 
 type
   TForm13 = class(TForm)
@@ -37,6 +37,7 @@ type
     FSelectedCam: TECShape;
 
     procedure doWebCamRefresh(Sender: TObject);
+    procedure doAfterDraw(const canvas: TECCanvas; var rect: TRect; item: TECShape) ;
     procedure ShowInfoWebCam;
   public
     { Déclarations publiques }
@@ -55,7 +56,7 @@ begin
 
   // TVclWindyWebcamsClient is the client that supports the Windy API
   VclWindyWebcamsClient := TVclWindyWebcamsClient.create(self);
-  VclWindyWebcamsClient.ApiKey := 'use your api key';
+  VclWindyWebcamsClient.ApiKey := 'you api key';
 
   // VclWindyWebcamImage is derived from TImage and allows a webcam to be displayed based on its ID
   // You must connect a TVclWindyWebcamsClient to it
@@ -68,8 +69,9 @@ begin
   VclWindyWebcamImage.height := 256;
   VclWindyWebcamImage.RefreshInterval := 60; // 1 minute
   VclWindyWebcamImage.AutoRefresh := True;
-end;
 
+  FSelectedCam := nil;
+end;
 
 // Retrieving the list of webcams within the map's visible area
 procedure TForm13.btWebCamsClick(Sender: TObject);
@@ -126,6 +128,10 @@ begin
         end;
 
         P := map.AddMArker(LWebcam.Location.Latitude, LWebcam.Location.Longitude);
+
+        // To display the star indicating the selection
+        P.OnAfterDraw := doAfterDraw;
+
         (*
           We use the icon URL.
           Note that in the free plan, image URLs are only valid for 10 minutes
@@ -160,10 +166,38 @@ end;
 // VclWindyWebcamImage has an AutoRefresh property that automatically loads the new image if it is available
 procedure TForm13.mapShapeClick(sender: TObject; const item: TECShape);
 begin
+
+  if assigned(FSelectedCam) then
+   FSelectedCam.Selected := false;
+
   FSelectedCam := Item;
+  FSelectedCam.Selected := true;
+
   ShowInfoWebCam;
   VclWindyWebcamImage.WebcamId := StrToInt64(FSelectedCam['webcamid']);
 end;
+
+// Draw a red star in the upper-right corner of the icon if it is selected
+procedure TForm13.doAfterDraw(const canvas: TECCanvas; var rect: TRect; item: TECShape) ;
+var size_start : integer;
+begin
+ if assigned(item) and (item.Selected) then
+ begin
+   size_start := (item.Width div 2);
+   if size_start< 10 then size_start := 10;
+
+   canvas.Pen.Color := clBlack;  
+   canvas.PenWidth(1);
+   canvas.Brush.Color := GetHighlightColorBy(clRed,16);
+
+   rect.Left := rect.Left + (rect.Right-rect.Left) - size_start;
+   rect.Top := rect.Top - (size_start div 2);
+   rect.Bottom := rect.Top + size_start ;
+
+   canvas.DrawStar(rect);  
+  end;
+end;
+
 
 // Trigger when the VclWindyWebcamImage automatically refreshes
 procedure TForm13.doWebCamRefresh(Sender: TObject);
